@@ -1,104 +1,348 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Xezae Peshlakai</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Xezae Peshlakai | Electrical Engineering Portfolio</title>
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial;
-            margin: 40px;
+            font-family: Arial, Helvetica, sans-serif;
             background-color: #f4f4f4;
             color: #222;
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #10243d, #1e3a5f);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-weight: normal;
+            color: #d7e3f2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
+            padding: 40px 20px;
         }
 
-        h1 {
+        .section-title {
+            font-size: 34px;
+            margin-bottom: 25px;
             color: #1e3a5f;
         }
 
         .project {
-            margin-top: 30px;
-            padding: 20px;
-            border-left: 4px solid #1e3a5f;
-            background: #fafafa;
+            background: white;
+            border-radius: 14px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+        }
+
+        .project h3 {
+            color: #1e3a5f;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .project p {
+            margin-bottom: 20px;
+        }
+
+        .project img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 12px;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .media-container {
+            margin-top: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 850px;
+            height: 480px;
+            border: none;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .skill {
+            background: #1e3a5f;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+
+        .contact {
+            background: white;
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            margin-bottom: 50px;
+        }
+
+        .contact p {
+            margin-bottom: 10px;
+            font-size: 18px;
         }
 
         a {
             color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .qr-section {
+            margin-top: 25px;
+        }
+
+        .qr-section img {
+            width: 170px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            iframe {
+                height: 300px;
+            }
+
+            .project h3 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 
 <body>
-<div class="container">
 
-    <h1>Xezae Peshlakai</h1>
+    <!-- HERO SECTION -->
+    <section class="hero">
 
-    <h2>Electrical Engineering Student</h2>
+        <h1>Xezae Peshlakai</h1>
 
-    <p>
-        I am an Electrical Engineering student at UC Santa Cruz focused on
-        embedded systems, power electronics, sustainability, and clean energy technologies.
-    </p>
+        <h2>Electrical Engineering Student | Embedded Systems | Clean Energy</h2>
 
-    <h2>Projects</h2>
-
-    <div class="project">
-        <h3>Automated Solar Panel Cleaning System</h3>
         <p>
-            Designed an autonomous solar panel cleaning system utilizing
-            a linear actuator, squeegee mechanism, embedded control systems,
-            and power subsystem fault protection.
+            Electrical Engineering student at UC Santa Cruz focused on embedded systems,
+            power electronics, sustainability, automation, and clean energy technologies.
+            Passionate about building real-world engineering solutions that combine hardware,
+            software, and intelligent system design.
         </p>
+
+    </section>
+
+    <div class="container">
+
+        <!-- ABOUT -->
+        <section>
+
+            <h2 class="section-title">About Me</h2>
+
+            <div class="project">
+
+                <p>
+                    I enjoy designing systems that blend embedded hardware, sensing,
+                    automation, and sustainable engineering. My projects focus on
+                    solving practical problems through hands-on prototyping,
+                    microcontroller development, power system integration,
+                    and mechanical design.
+                </p>
+
+                <div class="skills">
+
+                    <div class="skill">STM32</div>
+                    <div class="skill">Embedded Systems</div>
+                    <div class="skill">Power Electronics</div>
+                    <div class="skill">Sensor Systems</div>
+                    <div class="skill">Automation</div>
+                    <div class="skill">Clean Energy</div>
+                    <div class="skill">C Programming</div>
+                    <div class="skill">MATLAB</div>
+                    <div class="skill">System Design</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+
+            <h2 class="section-title">Projects</h2>
+
+            <!-- Solar Cleaning Robot -->
+            <div class="project">
+
+                <h3>Automated Solar Panel Cleaning System</h3>
+
+                <p>
+                    Designed and developed an autonomous solar panel cleaning system utilizing
+                    a linear actuator, squeegee cleaning mechanism, embedded motor control,
+                    power subsystem protection, and fault detection architecture.
+                    The system was engineered to improve long-term solar panel efficiency
+                    while reducing manual maintenance requirements.
+                </p>
+
+            </div>
+
+            <!-- Power Monitoring -->
+            <div class="project">
+
+                <h3>Power Monitoring and Fault Detection System</h3>
+
+                <p>
+                    Developed embedded voltage and current sensing systems using STM32
+                    microcontrollers for real-time subsystem monitoring and fault handling.
+                    Integrated ADC measurements, shunt-based current sensing, relay protection,
+                    and OLED visualization for power subsystem diagnostics.
+                </p>
+
+            </div>
+
+            <!-- WasteWizard -->
+            <div class="project">
+
+                <h3>Automated Smart Trash Can System (WasteWizard)</h3>
+
+                <p>
+                    Designed and developed an autonomous smart trash can system utilizing
+                    ultrasonic sensing, embedded microcontroller control, and real-time
+                    actuator response to improve user interaction and waste management functionality.
+                    The project integrated distance-based lid activation, sensor feedback processing,
+                    OLED display interfacing, and embedded firmware on an STM32 platform.
+                </p>
+
+                <img src="robot.jpg" alt="WasteWizard Smart Trash Can">
+
+                <div class="media-container">
+
+                    <!-- YouTube Video -->
+                    <iframe
+                        src="https://www.youtube.com/embed/UC7Tazu4jGg"
+                        title="WasteWizard Demo Video"
+                        allowfullscreen>
+                    </iframe>
+
+                    <!-- Embedded Google Slides -->
+                    <iframe
+                        src="https://docs.google.com/presentation/d/1GFlnDukIo_a9Z3QC4ZBWBCqdpyzvXppunGAbWvP69-M/embed?start=false&loop=false&delayms=3000"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- CONTACT -->
+        <section>
+
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact">
+
+                <p>
+                    <strong>Email:</strong>
+                    <a href="mailto:xpeshlakai2222@gmail.com">
+                        xpeshlakai2222@gmail.com
+                    </a>
+                </p>
+
+                <p>
+                    <strong>GitHub:</strong>
+                    <a href="https://github.com/xezae" target="_blank">
+                        github.com/xezae
+                    </a>
+                </p>
+
+                <div class="qr-section">
+
+                    <p><strong>Portfolio QR Code</strong></p>
+
+                    <!-- Replace with your actual QR code image -->
+                    <img src="qr-code.png" alt="Portfolio QR Code">
+
+                </div>
+
+            </div>
+
+        </section>
+
     </div>
 
-    <div class="project">
-        <h3>Power Monitoring and Fault Detection System</h3>
-        <p>
-            Developed voltage and current sensing circuits using STM32
-            microcontrollers for real-time subsystem monitoring.
-        </p>
+    <div class="footer">
+        © 2026 Xezae Peshlakai • Electrical Engineering Portfolio
     </div>
-    
-    <div class="project">
 
-<h3>Automated Smart Trash Can System</h3>
-
-<p>
-Designed and developed an autonomous smart trash can system utilizing ultrasonic sensing,
-    embedded microcontroller control, and real-time actuator response to improve user
-    interaction and waste management functionality. The system integrated distance-based
-    lid activation, sensor feedback processing, and embedded firmware on an STM32 platform
-    with OLED display interfacing and real-time timing control.
-</p>
-
-<img src="robot.jpg" width="500">
-
-<iframe src="https://docs.google.com/presentation/d/1GFlnDukIo_a9Z3QC4ZBWBCqdpyzvXppunGAbWvP69-M/edit?slide=id.g3d0447e5eea_1_75#slide=id.g3d0447e5eea_1_75"
-frameborder="0"
-width="800"
-height="450">
-</iframe>
-
-</div>
-    
-    <h2>Contact</h2>
-
-    <p>Email: xpeshlakai2222@gmail.com</p>
-
-    <p>
-        GitHub:
-        <a href="https://github.com/xezae">
-            github.com/xezae
-        </a>
-    </p>
-
-</div>
 </body>
+
 </html>
