@@ -1,518 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xezae Peshlakai</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xezae Peshlakai | Portfolio</title>
 
-    <style>
-        @font-face {
-            font-family: 'Mauikea';
-            src: url('fonts/MAUIKEA-Demo.otf') format('opentype');
-        }
+<style>
+    :root {
+        --ocean-dark: #0B3C49;
+        --ocean-mid: #15616D;
+        --turquoise: #3FE0D0;
+        --sandstone: #C17A4A;
+        --cream: #F4F1EA;
+        --white: #FFFDF9;
+        --text: #222;
+    }
 
-        :root {
-            --deep-ocean: #10272c;
-            --ocean: #1fbfc1;
-            --bright-ocean: #55e0d6;
-            --sand: #f3d7b6;
-            --clay: #c87941;
-            --seafoam: #d8f7ee;
-            --earth: #5f6f52;
-            --card: #fff7ec;
-            --text: #1f2b2c;
-        }
+    * {
+        box-sizing: border-box;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+        margin: 0;
+        font-family: Verdana, Arial, sans-serif;
+        background:
+            radial-gradient(circle at top left, #3FE0D0 0%, transparent 25%),
+            linear-gradient(135deg, var(--ocean-dark), var(--ocean-mid));
+        color: var(--text);
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    a {
+        color: var(--ocean-mid);
+        font-weight: bold;
+        text-decoration: none;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background:
-                radial-gradient(circle at top left, rgba(85, 224, 214, 0.35), transparent 35%),
-                linear-gradient(180deg, #d8f7ee 0%, #f3d7b6 55%, #fff7ec 100%);
-            color: var(--text);
-            line-height: 1.6;
-        }
+    a:hover {
+        color: var(--turquoise);
+        text-decoration: underline;
+    }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    .top-bar {
+        background: var(--ocean-dark);
+        color: white;
+        padding: 12px 20px;
+        border-bottom: 4px solid var(--turquoise);
+        font-size: 14px;
+    }
 
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 247, 236, 0.88);
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid rgba(31, 191, 193, 0.25);
-        }
+    .top-bar a {
+        color: white;
+        margin-right: 18px;
+    }
 
-        .nav-container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .site-wrapper {
+        max-width: 1150px;
+        margin: 25px auto;
+        background: var(--cream);
+        border: 4px solid var(--turquoise);
+        box-shadow: 0 0 25px rgba(63, 224, 208, 0.45);
+        padding: 18px;
+    }
 
-        .logo {
-            font-family: 'Mauikea', Arial, sans-serif;
-            font-size: 2rem;
-            color: var(--deep-ocean);
-            letter-spacing: 2px;
-        }
+    .profile-header {
+        background: linear-gradient(135deg, var(--ocean-dark), var(--turquoise));
+        color: white;
+        padding: 25px;
+        border: 3px solid var(--sandstone);
+        margin-bottom: 18px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 22px;
-            font-weight: bold;
-            color: var(--deep-ocean);
-        }
+    .profile-header h1 {
+        margin: 0;
+        font-size: 42px;
+    }
 
-        .nav-links a:hover {
-            color: var(--ocean);
-        }
+    .profile-header p {
+        margin-top: 8px;
+        font-size: 17px;
+    }
 
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            padding: 80px 25px;
-        }
+    .layout {
+        display: grid;
+        grid-template-columns: 310px 1fr;
+        gap: 18px;
+    }
 
-        .hero-content {
-            max-width: 1100px;
-            margin: auto;
-            width: 100%;
-        }
+    .box {
+        background: var(--white);
+        border: 3px solid var(--ocean-mid);
+        margin-bottom: 18px;
+    }
 
-        .hero h1 {
-            font-family: 'Mauikea', Arial, sans-serif;
-            font-size: clamp(4rem, 10vw, 8rem);
-            line-height: 0.95;
-            color: var(--deep-ocean);
-            letter-spacing: 4px;
-            margin-bottom: 25px;
-        }
+    .box-title {
+        background: var(--ocean-mid);
+        color: white;
+        padding: 8px 12px;
+        font-weight: bold;
+        border-bottom: 3px solid var(--turquoise);
+    }
 
-        .hero-tagline {
-            font-size: 1.5rem;
-            color: var(--clay);
-            font-weight: bold;
-            margin-bottom: 25px;
-            max-width: 720px;
-        }
+    .box-content {
+        padding: 15px;
+    }
 
-        .hero p {
-            max-width: 720px;
-            font-size: 1.1rem;
-            margin-bottom: 35px;
-        }
+    .profile-pic {
+        width: 100%;
+        border: 3px solid var(--sandstone);
+        background: #ddd;
+    }
 
-        .button-row {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
+    .status {
+        background: #fff3d8;
+        border: 2px dashed var(--sandstone);
+        padding: 12px;
+        font-size: 14px;
+    }
 
-        .button {
-            padding: 14px 24px;
-            border-radius: 999px;
-            font-weight: bold;
-            transition: 0.25s;
-        }
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        font-size: 13px;
+    }
 
-        .button-primary {
-            background: var(--ocean);
-            color: white;
-        }
+    .contact-grid div {
+        background: var(--cream);
+        border: 1px solid var(--sandstone);
+        padding: 8px;
+        text-align: center;
+    }
 
-        .button-primary:hover {
-            background: var(--deep-ocean);
-            transform: translateY(-3px);
-        }
+    .skill-tag {
+        display: inline-block;
+        background: var(--turquoise);
+        color: var(--ocean-dark);
+        padding: 6px 10px;
+        margin: 4px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+    }
 
-        .button-secondary {
-            background: var(--sand);
-            color: var(--deep-ocean);
-            border: 2px solid var(--clay);
-        }
+    .project-card {
+        background: #ffffff;
+        border: 2px solid var(--sandstone);
+        padding: 15px;
+        margin-bottom: 16px;
+    }
 
-        .button-secondary:hover {
-            transform: translateY(-3px);
-            background: white;
-        }
+    .project-card h3 {
+        color: var(--ocean-dark);
+        margin-top: 0;
+    }
 
-        section {
-            padding: 90px 25px;
-        }
+    .project-card img {
+        max-width: 100%;
+        border: 3px solid var(--ocean-mid);
+        margin: 12px 0;
+    }
 
-        .section-container {
-            max-width: 1100px;
-            margin: auto;
-        }
+    iframe {
+        width: 100%;
+        height: 420px;
+        border: 3px solid var(--ocean-mid);
+        margin-top: 12px;
+        background: white;
+    }
 
-        .section-title {
-            font-family: 'Mauikea', Arial, sans-serif;
-            font-size: clamp(3rem, 7vw, 5rem);
-            color: var(--deep-ocean);
-            margin-bottom: 30px;
-            letter-spacing: 3px;
-        }
+    .resume-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
 
-        .about-section {
-            background: var(--deep-ocean);
-            color: white;
-            border-top: 8px solid var(--ocean);
-            border-bottom: 8px solid var(--clay);
-        }
+    .resume-tabs button {
+        background: var(--sandstone);
+        color: white;
+        border: 2px solid var(--ocean-dark);
+        padding: 8px 12px;
+        cursor: pointer;
+        font-weight: bold;
+    }
 
-        .about-section .section-title {
-            color: var(--bright-ocean);
-        }
+    .resume-tabs button.active {
+        background: var(--turquoise);
+        color: var(--ocean-dark);
+    }
 
-        .about-box {
-            max-width: 850px;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 40px;
-            border-radius: 28px;
-            border: 2px solid rgba(85, 224, 214, 0.25);
-        }
+    .resume-section {
+        display: none;
+    }
 
-        .about-box p {
-            color: #eefdfb;
-            font-size: 1.15rem;
-            margin-bottom: 18px;
-        }
+    .resume-section.active {
+        display: block;
+    }
 
-        .fun-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-        }
+    .resume-card {
+        border-left: 5px solid var(--turquoise);
+        background: var(--cream);
+        padding: 14px;
+        margin-bottom: 14px;
+    }
 
-        .project-card {
-            background: var(--card);
-            border-radius: 28px;
-            padding: 28px;
-            border: 3px solid rgba(16, 39, 44, 0.12);
-            box-shadow: 8px 8px 0 rgba(31, 191, 193, 0.25);
-            transition: 0.25s;
-        }
+    .resume-card h3 {
+        margin-top: 0;
+        color: var(--ocean-dark);
+    }
 
-        .project-card:hover {
-            transform: translateY(-6px) rotate(-1deg);
-            box-shadow: 12px 12px 0 rgba(200, 121, 65, 0.35);
-        }
+    .resume-card h4 {
+        color: var(--sandstone);
+        margin-bottom: 8px;
+    }
 
-        .project-card h3 {
-            font-size: 1.45rem;
-            margin-bottom: 12px;
-            color: var(--deep-ocean);
-        }
+    .button {
+        display: inline-block;
+        background: var(--ocean-dark);
+        color: white;
+        padding: 10px 15px;
+        margin-top: 10px;
+        border: 2px solid var(--turquoise);
+    }
 
-        .project-card p {
-            margin-bottom: 18px;
-        }
+    .button:hover {
+        background: var(--turquoise);
+        color: var(--ocean-dark);
+        text-decoration: none;
+    }
 
-        .project-label {
-            display: inline-block;
-            background: var(--ocean);
-            color: white;
-            padding: 7px 14px;
-            border-radius: 999px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 14px;
-        }
+    .footer {
+        text-align: center;
+        background: var(--ocean-dark);
+        color: white;
+        padding: 15px;
+        margin-top: 18px;
+        border-top: 4px solid var(--turquoise);
+    }
 
-        .skills-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .skill {
-            background: white;
-            border: 2px solid var(--deep-ocean);
-            color: var(--deep-ocean);
-            padding: 12px 18px;
-            border-radius: 999px;
-            font-weight: bold;
-            box-shadow: 4px 4px 0 rgba(31, 191, 193, 0.25);
-        }
-
-        .video-box {
-            background: var(--deep-ocean);
-            padding: 25px;
-            border-radius: 30px;
-            box-shadow: 10px 10px 0 rgba(200, 121, 65, 0.35);
+    @media (max-width: 850px) {
+        .layout {
+            grid-template-columns: 1fr;
         }
 
         iframe {
-            width: 100%;
-            height: 520px;
-            border: none;
-            border-radius: 20px;
+            height: 300px;
         }
 
-        .resume-section {
-            text-align: center;
-            background: var(--seafoam);
+        .profile-header h1 {
+            font-size: 34px;
         }
-
-        .qr-box {
-            margin-top: 25px;
-            display: inline-block;
-            background: white;
-            padding: 25px;
-            border-radius: 25px;
-            border: 3px solid var(--ocean);
-            box-shadow: 8px 8px 0 rgba(16, 39, 44, 0.18);
-        }
-
-        .qr-box img {
-            width: 210px;
-        }
-
-        footer {
-            background: var(--deep-ocean);
-            color: white;
-            text-align: center;
-            padding: 45px 25px;
-        }
-
-        footer h2 {
-            font-family: 'Mauikea', Arial, sans-serif;
-            color: var(--bright-ocean);
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        footer p {
-            color: #e8fffb;
-        }
-
-        @media (max-width: 800px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-                font-size: 0.95rem;
-            }
-
-            iframe {
-                height: 300px;
-            }
-
-            .about-box {
-                padding: 28px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Xezae</div>
+<div class="top-bar">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+</div>
 
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#video">Video</a>
-                <a href="#resume">Resume</a>
+<div class="site-wrapper">
+
+    <div class="profile-header">
+        <h1>Xezae Peshlakai</h1>
+        <p>Electrical Engineering Student • Embedded Systems • Clean Energy • Power Electronics</p>
+    </div>
+
+    <div class="layout">
+
+        <aside>
+
+            <div class="box">
+                <div class="box-title">Profile Picture</div>
+                <div class="box-content">
+                    <img src="profile.jpg" alt="Xezae Peshlakai" class="profile-pic">
+                    <p><strong>Xezae Peshlakai</strong></p>
+                    <p>UC Santa Cruz Electrical Engineering</p>
+                </div>
             </div>
-        </div>
-    </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Xezae<br>Peshlakai</h1>
-
-            <div class="hero-tagline">
-                Building things that mix engineering, clean energy, creativity, and a little ocean energy.
+            <div class="box">
+                <div class="box-title">Current Status</div>
+                <div class="box-content">
+                    <div class="status">
+                        Building embedded systems, clean-energy hardware, and projects that actually do something useful.
+                    </div>
+                </div>
             </div>
 
-            <p>
-                I’m an electrical engineering student who likes turning ideas into real working systems.
-                My projects usually involve hardware, sensors, power systems, automation, and sustainability.
-                I wanted this site to feel less like a corporate portfolio and more like a map of what I’ve built,
-                what I’m learning, and what I’m excited about.
-            </p>
-
-            <div class="button-row">
-                <a href="#projects" class="button button-primary">Explore My Projects</a>
-                <a href="resume.pdf" class="button button-secondary" target="_blank">View Resume</a>
+            <div class="box" id="contact">
+                <div class="box-title">Contact Me</div>
+                <div class="box-content">
+                    <div class="contact-grid">
+                        <div><a href="mailto:xpeshlakai2222@gmail.com">Email</a></div>
+                        <div><a href="https://github.com/xezae" target="_blank">GitHub</a></div>
+                        <div><a href="https://www.linkedin.com/in/xezaepeshlakai" target="_blank">LinkedIn</a></div>
+                        <div><a href="Peshlakai_Resume.pdf" target="_blank">Resume</a></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </header>
 
-    <section id="about" class="about-section">
-        <div class="section-container">
-            <h2 class="section-title">About Me</h2>
-
-            <div class="about-box">
-                <p>
-                    I’m drawn to projects that feel useful, hands-on, and connected to the real world.
-                    I like working on systems where mechanical design, electronics, programming, and power all have to come together.
-                </p>
-
-                <p>
-                    A lot of my interests come from wanting to build technology that supports sustainability,
-                    clean energy, and communities. I’m especially interested in renewable energy, embedded systems,
-                    power electronics, and automation.
-                </p>
-
-                <p>
-                    Outside of school and engineering, I’m into surfing, snowboarding, guitar, and spending time outside.
-                    That ocean and outdoor influence is a big part of the style of this website too.
-                </p>
+            <div class="box">
+                <div class="box-title">Top Skills</div>
+                <div class="box-content">
+                    <span class="skill-tag">STM32</span>
+                    <span class="skill-tag">BeagleBone</span>
+                    <span class="skill-tag">Embedded C</span>
+                    <span class="skill-tag">Power Systems</span>
+                    <span class="skill-tag">MOSFETs</span>
+                    <span class="skill-tag">Sensors</span>
+                    <span class="skill-tag">Revit</span>
+                    <span class="skill-tag">AutoCAD</span>
+                    <span class="skill-tag">KiCad</span>
+                    <span class="skill-tag">MATLAB</span>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section id="projects">
-        <div class="section-container">
-            <h2 class="section-title">Project List</h2>
+        </aside>
 
-            <div class="fun-list">
+        <main>
 
-                <div class="project-card">
-                    <span class="project-label">Clean Energy</span>
-                    <h3>Solar Panel Cleaning System</h3>
+            <div class="box" id="about">
+                <div class="box-title">About Me</div>
+                <div class="box-content">
                     <p>
-                        An automated cleaning system for solar panels using a linear actuator,
-                        spray bar, wiper blade, limit switches, and embedded fault protection.
+                        I strive to blend engineering with a sustainability-driven perspective,
+                        guided by my Navajo heritage and a commitment to building solutions that
+                        support both community and environment.
+                    </p>
+                    <p>
+                        I am especially interested in power systems, hardware design, embedded control,
+                        and clean energy technologies where technical decisions directly shape efficiency,
+                        reliability, and long-term impact.
                     </p>
                 </div>
-
-                <div class="project-card">
-                    <span class="project-label">Sensors</span>
-                    <h3>Smart Trash Can System</h3>
-                    <p>
-                        A smart waste system using ultrasonic sensors, STM32 programming,
-                        OLED feedback, and automatic lid/fill-level detection.
-                    </p>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-label">Power</span>
-                    <h3>Power Monitoring & Fault Protection</h3>
-                    <p>
-                        A voltage and current monitoring setup for 24V, 12V, and 5V rails
-                        with ADC readings, relay shutdown logic, and undervoltage detection.
-                    </p>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-label">Embedded</span>
-                    <h3>Stepper Motor Control</h3>
-                    <p>
-                        Motor control using a DM556T stepper driver, pulse/direction signals,
-                        limit switches, and safety logic for controlled motion.
-                    </p>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-label">Web</span>
-                    <h3>Personal Portfolio Website</h3>
-                    <p>
-                        This site — built to show my projects, personality, resume, and engineering interests
-                        in a way that feels more personal than a standard resume.
-                    </p>
-                </div>
-
-                <div class="project-card">
-                    <span class="project-label">Design</span>
-                    <h3>Engineering Presentations</h3>
-                    <p>
-                        Slide decks and design reviews explaining system requirements,
-                        testing methodology, mechanical design, embedded systems, and power validation.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="section-container">
-            <h2 class="section-title">Skills + Tools</h2>
-
-            <div class="skills-cloud">
-                <div class="skill">Embedded C</div>
-                <div class="skill">STM32</div>
-                <div class="skill">BeagleBone Black</div>
-                <div class="skill">Power Systems</div>
-                <div class="skill">Voltage Dividers</div>
-                <div class="skill">Current Sensing</div>
-                <div class="skill">Relays</div>
-                <div class="skill">MOSFET Switching</div>
-                <div class="skill">Stepper Motors</div>
-                <div class="skill">Limit Switches</div>
-                <div class="skill">Sensors</div>
-                <div class="skill">HTML/CSS</div>
-                <div class="skill">MATLAB</div>
-                <div class="skill">Circuit Testing</div>
-                <div class="skill">Sustainability</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="video">
-        <div class="section-container">
-            <h2 class="section-title">Project Video</h2>
-
-            <div class="video-box">
-                <iframe
-                    src="https://www.youtube.com/embed/UC7Tazu4jGg"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <section id="resume" class="resume-section">
-        <div class="section-container">
-            <h2 class="section-title">Resume + QR</h2>
-
-            <p>
-                Add your QR code here so people can quickly open your website from your resume,
-                poster, presentation, or project demo.
-            </p>
-
-            <div class="qr-box">
-                <img src="your-qr-code.png" alt="QR Code">
             </div>
 
-            <br><br>
+            <div class="box" id="projects">
+                <div class="box-title">My Projects</div>
+                <div class="box-content">
 
-            <a href="resume.pdf" class="button button-primary" target="_blank">Open Resume</a>
-        </div>
-    </section>
+                    <div class="project-card">
+                        <h3>Automated Solar Panel Cleaning System</h3>
+                        <p>
+                            Designed an automated solar panel cleaning system to improve solar asset
+                            performance, energy yield, and maintenance efficiency by reducing dust and
+                            debris accumulation.
+                        </p>
+                        <p>
+                            Includes embedded control, motor drivers, sensors, actuators, 24V/12V/5V
+                            power distribution, MOSFET switching, relay protection, and real-time fault detection.
+                        </p>
+                    </div>
 
-    <footer>
-        <h2>Let’s Connect</h2>
-        <p>Xezae Peshlakai</p>
-        <p>xpeshlakai2222@gmail.com</p>
-    </footer>
+                    <div class="project-card">
+                        <h3>Power Monitoring and Fault Detection System</h3>
+                        <p>
+                            Developed voltage and current sensing circuits using STM32 microcontrollers
+                            for real-time subsystem monitoring, fault detection, and safe shutdown behavior.
+                        </p>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Automated Smart Trash Can System | WasteWizard</h3>
+                        <p>
+                            Designed and developed an autonomous smart trash can system using ultrasonic sensing,
+                            embedded microcontroller control, OLED display interfacing, and real-time actuator response.
+                        </p>
+
+                        <img src="robot.jpg" alt="WasteWizard Smart Trash Can">
+
+                        <iframe
+                            src="https://www.youtube.com/embed/UC7Tazu4jGg"
+                            title="WasteWizard Demo Video"
+                            allowfullscreen>
+                        </iframe>
+
+                        <iframe
+                            src="https://docs.google.com/presentation/d/1GFlnDukIo_a9Z3QC4ZBWBCqdpyzvXppunGAbWvP69-M/embed?start=false&loop=false&delayms=3000"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="box" id="resume">
+                <div class="box-title">Interactive Resume</div>
+                <div class="box-content">
+
+                    <div class="resume-tabs">
+                        <button class="tab-button active" onclick="showResumeSection('experience', this)">Experience</button>
+                        <button class="tab-button" onclick="showResumeSection('projects-resume', this)">Projects</button>
+                        <button class="tab-button" onclick="showResumeSection('skills-resume', this)">Skills</button>
+                        <button class="tab-button" onclick="showResumeSection('education', this)">Education</button>
+                    </div>
+
+                    <div id="experience" class="resume-section active">
+
+                        <div class="resume-card">
+                            <h3>Design/Electrical Engineering Intern</h3>
+                            <h4>ArchKey Solutions | June 2025 - September 2025</h4>
+                            <p>
+                                Supported electrical design for commercial projects using BIM, VDC,
+                                Autodesk Revit, and AutoCAD with a focus on energy efficiency,
+                                Title 24 compliance, NEC guidelines, conductor sizing, overcurrent protection,
+                                grounding, and safe installation practices.
+                            </p>
+                        </div>
+
+                        <div class="resume-card">
+                            <h3>Supervisor</h3>
+                            <h4>Rip Curl | May 2022 - December 2024</h4>
+                            <p>
+                                Led daily retail operations, supervised team members, supported sales goals,
+                                managed labor allocation, improved customer experience, and coordinated inventory.
+                            </p>
+                        </div>
+
+                        <div class="resume-card">
+                            <h3>Web Developer</h3>
+                            <h4>Tech4Good | September 2022 - March 2023</h4>
+                            <p>
+                                Developed responsive front-end components using Angular, HTML, CSS, and TypeScript.
+                                Implemented back-end functionality using Observables, RxJS, and Firebase.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div id="projects-resume" class="resume-section">
+                        <div class="resume-card">
+                            <h3>Solar Panel Cleaning Robot</h3>
+                            <h4>Capstone Project | October 2025 - Present</h4>
+                            <p>
+                                Designing an automated solar panel cleaning system with embedded control,
+                                BeagleBone Black integration, motor drivers, sensors, KiCad schematics,
+                                mixed-voltage power distribution, MOSFET switching, relay protection,
+                                and electrical validation testing.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="skills-resume" class="resume-section">
+                        <div class="resume-card">
+                            <h3>Technical Skills</h3>
+                            <span class="skill-tag">Power Systems</span>
+                            <span class="skill-tag">Energy Efficiency</span>
+                            <span class="skill-tag">California Title 24</span>
+                            <span class="skill-tag">STM32</span>
+                            <span class="skill-tag">PIC</span>
+                            <span class="skill-tag">BeagleBone Black</span>
+                            <span class="skill-tag">Real-Time Systems</span>
+                            <span class="skill-tag">Sensor Integration</span>
+                            <span class="skill-tag">DC-DC Converters</span>
+                            <span class="skill-tag">Motor Drivers</span>
+                            <span class="skill-tag">Battery Systems</span>
+                            <span class="skill-tag">MOSFET Switching</span>
+                            <span class="skill-tag">Revit</span>
+                            <span class="skill-tag">AutoCAD</span>
+                            <span class="skill-tag">Onshape</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">Embedded C</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                        </div>
+                    </div>
+
+                    <div id="education" class="resume-section">
+                        <div class="resume-card">
+                            <h3>Bachelor of Science in Electrical Engineering</h3>
+                            <h4>University of California, Santa Cruz | Expected June 2026</h4>
+                            <p>GPA: 3.54</p>
+                            <p>Member of the College Scholars Program.</p>
+                        </div>
+                    </div>
+
+                    <a class="button" href="Peshlakai_Resume.pdf" target="_blank">
+                        View Full Resume PDF
+                    </a>
+
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Xezae Peshlakai • Oceanic MySpace Engineering Portfolio
+    </div>
+
+</div>
+
+<script>
+    function showResumeSection(sectionId, button) {
+        const sections = document.querySelectorAll('.resume-section');
+        const buttons = document.querySelectorAll('.tab-button');
+
+        sections.forEach(section => {
+            section.classList.remove('active');
+        });
+
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        document.getElementById(sectionId).classList.add('active');
+        button.classList.add('active');
+    }
+</script>
 
 </body>
 </html>
