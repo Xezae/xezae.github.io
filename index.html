@@ -1,10 +1,12 @@
+Here’s the full updated website code with an interactive resume section based on your uploaded resume. 
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Xezae Peshlakai | Electrical Engineering Portfolio</title>
 
     <style>
@@ -23,6 +25,21 @@
             background-color: #f4f4f4;
             color: #222;
             line-height: 1.6;
+        }
+
+        nav {
+            background: #10243d;
+            padding: 15px 30px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 14px;
+            font-weight: bold;
         }
 
         .hero {
@@ -44,7 +61,7 @@
         }
 
         .hero p {
-            max-width: 750px;
+            max-width: 800px;
             margin: auto;
             font-size: 18px;
         }
@@ -61,40 +78,35 @@
             color: #1e3a5f;
         }
 
-        .project {
+        .card, .project, .contact, .resume-card {
             background: white;
             border-radius: 14px;
             padding: 30px;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease;
         }
 
-        .project:hover {
-            transform: translateY(-4px);
+        .project {
+            border-left: 5px solid #1e3a5f;
         }
 
-        .project h3 {
+        .project h3, .resume-card h3 {
             color: #1e3a5f;
-            margin-bottom: 15px;
-            font-size: 28px;
+            margin-bottom: 10px;
+            font-size: 26px;
         }
 
-        .project p {
-            margin-bottom: 20px;
+        .project h4, .resume-card h4 {
+            color: #555;
+            margin-bottom: 12px;
         }
 
         .project img {
             width: 100%;
             max-width: 700px;
             border-radius: 12px;
-            margin-top: 10px;
-            margin-bottom: 25px;
+            margin: 20px 0;
             display: block;
-        }
-
-        .media-container {
-            margin-top: 20px;
         }
 
         iframe {
@@ -121,17 +133,44 @@
             font-size: 14px;
         }
 
-        .contact {
-            background: white;
-            border-radius: 14px;
-            padding: 30px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-            margin-bottom: 50px;
+        .resume-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
-        .contact p {
-            margin-bottom: 10px;
-            font-size: 18px;
+        .resume-tabs button {
+            background: white;
+            color: #1e3a5f;
+            border: 2px solid #1e3a5f;
+            padding: 12px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .resume-tabs button.active {
+            background: #1e3a5f;
+            color: white;
+        }
+
+        .resume-section {
+            display: none;
+        }
+
+        .resume-section.active {
+            display: block;
+        }
+
+        .resume-button {
+            display: inline-block;
+            margin-top: 15px;
+            background: #1e3a5f;
+            color: white;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-weight: bold;
         }
 
         a {
@@ -143,6 +182,12 @@
             text-decoration: underline;
         }
 
+        .qr-section img {
+            width: 170px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
         .footer {
             text-align: center;
             padding: 25px;
@@ -150,31 +195,18 @@
             font-size: 14px;
         }
 
-        .qr-section {
-            margin-top: 25px;
-        }
-
-        .qr-section img {
-            width: 170px;
-            border-radius: 10px;
-        }
-
         @media (max-width: 768px) {
-
             .hero h1 {
                 font-size: 38px;
-            }
-
-            .hero h2 {
-                font-size: 22px;
             }
 
             iframe {
                 height: 300px;
             }
 
-            .project h3 {
-                font-size: 24px;
+            nav a {
+                display: inline-block;
+                margin: 6px;
             }
         }
     </style>
@@ -182,134 +214,210 @@
 
 <body>
 
-    <!-- HERO SECTION -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
     <section class="hero">
-
         <h1>Xezae Peshlakai</h1>
-
         <h2>Electrical Engineering Student | Embedded Systems | Clean Energy</h2>
-
         <p>
             Electrical Engineering student at UC Santa Cruz focused on embedded systems,
             power electronics, sustainability, automation, and clean energy technologies.
-            Passionate about building real-world engineering solutions that combine hardware,
-            software, and intelligent system design.
         </p>
-
     </section>
 
     <div class="container">
 
-        <!-- ABOUT -->
-        <section>
-
+        <section id="about">
             <h2 class="section-title">About Me</h2>
 
-            <div class="project">
-
+            <div class="card">
                 <p>
-                    I enjoy designing systems that blend embedded hardware, sensing,
-                    automation, and sustainable engineering. My projects focus on
-                    solving practical problems through hands-on prototyping,
-                    microcontroller development, power system integration,
-                    and mechanical design.
+                    I strive to blend engineering with a sustainability-driven perspective,
+                    guided by my Navajo heritage and a commitment to building solutions that
+                    support both community and environment.
                 </p>
 
                 <div class="skills">
-
                     <div class="skill">STM32</div>
-                    <div class="skill">Embedded Systems</div>
+                    <div class="skill">BeagleBone Black</div>
+                    <div class="skill">Embedded C</div>
+                    <div class="skill">Power Systems</div>
                     <div class="skill">Power Electronics</div>
-                    <div class="skill">Sensor Systems</div>
-                    <div class="skill">Automation</div>
-                    <div class="skill">Clean Energy</div>
-                    <div class="skill">C Programming</div>
+                    <div class="skill">Sensor Integration</div>
+                    <div class="skill">Revit</div>
+                    <div class="skill">AutoCAD</div>
+                    <div class="skill">KiCad</div>
                     <div class="skill">MATLAB</div>
-                    <div class="skill">System Design</div>
-
                 </div>
-
             </div>
-
         </section>
 
-        <!-- PROJECTS -->
-        <section>
-
+        <section id="projects">
             <h2 class="section-title">Projects</h2>
 
-            <!-- Solar Cleaning Robot -->
             <div class="project">
-
                 <h3>Automated Solar Panel Cleaning System</h3>
-
                 <p>
-                    Designed and developed an autonomous solar panel cleaning system utilizing
-                    a linear actuator, squeegee cleaning mechanism, embedded motor control,
-                    power subsystem protection, and fault detection architecture.
-                    The system was engineered to improve long-term solar panel efficiency
-                    while reducing manual maintenance requirements.
+                    Designed an automated solar panel cleaning system to improve solar asset
+                    performance, energy yield, and maintenance efficiency by reducing dust and
+                    debris accumulation.
                 </p>
-
+                <p>
+                    The system integrates embedded control, motor drivers, sensors, actuators,
+                    24V/12V/5V power distribution, MOSFET switching, relay protection, and
+                    real-time fault detection.
+                </p>
             </div>
 
-            <!-- Power Monitoring -->
             <div class="project">
-
                 <h3>Power Monitoring and Fault Detection System</h3>
-
                 <p>
-                    Developed embedded voltage and current sensing systems using STM32
-                    microcontrollers for real-time subsystem monitoring and fault handling.
-                    Integrated ADC measurements, shunt-based current sensing, relay protection,
-                    and OLED visualization for power subsystem diagnostics.
+                    Developed voltage and current sensing circuits using STM32 microcontrollers
+                    for real-time subsystem monitoring, fault detection, and safe shutdown behavior.
                 </p>
-
             </div>
 
-            <!-- WasteWizard -->
             <div class="project">
-
                 <h3>Automated Smart Trash Can System (WasteWizard)</h3>
-
                 <p>
-                    Designed and developed an autonomous smart trash can system utilizing
-                    ultrasonic sensing, embedded microcontroller control, and real-time
-                    actuator response to improve user interaction and waste management functionality.
-                    The project integrated distance-based lid activation, sensor feedback processing,
-                    OLED display interfacing, and embedded firmware on an STM32 platform.
+                    Designed and developed an autonomous smart trash can system utilizing ultrasonic
+                    sensing, embedded microcontroller control, OLED display interfacing, and real-time
+                    actuator response.
                 </p>
 
                 <img src="robot.jpg" alt="WasteWizard Smart Trash Can">
 
-                <div class="media-container">
+                <iframe
+                    src="https://www.youtube.com/embed/UC7Tazu4jGg"
+                    title="WasteWizard Demo Video"
+                    allowfullscreen>
+                </iframe>
 
-                    <!-- YouTube Video -->
-                    <iframe
-                        src="https://www.youtube.com/embed/UC7Tazu4jGg"
-                        title="WasteWizard Demo Video"
-                        allowfullscreen>
-                    </iframe>
+                <iframe
+                    src="https://docs.google.com/presentation/d/1GFlnDukIo_a9Z3QC4ZBWBCqdpyzvXppunGAbWvP69-M/embed?start=false&loop=false&delayms=3000"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
 
-                    <!-- Embedded Google Slides -->
-                    <iframe
-                        src="https://docs.google.com/presentation/d/1GFlnDukIo_a9Z3QC4ZBWBCqdpyzvXppunGAbWvP69-M/embed?start=false&loop=false&delayms=3000"
-                        allowfullscreen>
-                    </iframe>
+        <section id="resume">
+            <h2 class="section-title">Interactive Resume</h2>
 
+            <div class="resume-tabs">
+                <button class="tab-button active" onclick="showResumeSection('experience', this)">Experience</button>
+                <button class="tab-button" onclick="showResumeSection('projects-resume', this)">Projects</button>
+                <button class="tab-button" onclick="showResumeSection('skills-resume', this)">Skills</button>
+                <button class="tab-button" onclick="showResumeSection('education', this)">Education</button>
+            </div>
+
+            <div id="experience" class="resume-section active">
+
+                <div class="resume-card">
+                    <h3>Design/Electrical Engineering Intern</h3>
+                    <h4>ArchKey Solutions | June 2025 - September 2025</h4>
+                    <p>
+                        Supported electrical design for large-scale commercial projects using BIM,
+                        VDC, Autodesk Revit, and AutoCAD. Applied energy-conscious engineering
+                        practices, Title 24 compliance, NEC guidelines, conductor sizing,
+                        overcurrent protection, grounding, and safe installation practices.
+                    </p>
+                </div>
+
+                <div class="resume-card">
+                    <h3>Supervisor</h3>
+                    <h4>Rip Curl | May 2022 - December 2024</h4>
+                    <p>
+                        Led daily retail operations, supervised team members, supported sales goals,
+                        managed labor allocation, improved customer experience, and coordinated
+                        inventory and merchandising execution.
+                    </p>
+                </div>
+
+                <div class="resume-card">
+                    <h3>Web Developer</h3>
+                    <h4>Tech4Good | September 2022 - March 2023</h4>
+                    <p>
+                        Developed responsive front-end components using Angular, HTML, CSS, and
+                        TypeScript. Implemented back-end functionality using Observables, RxJS,
+                        and Firebase for scalable web applications.
+                    </p>
                 </div>
 
             </div>
 
+            <div id="projects-resume" class="resume-section">
+
+                <div class="resume-card">
+                    <h3>Solar Panel Cleaning Robot</h3>
+                    <h4>Capstone Project | October 2025 - Present</h4>
+                    <p>
+                        Designing an automated solar panel cleaning system with embedded control,
+                        BeagleBone Black integration, motor drivers, sensors, actuators, KiCad
+                        schematics, mixed-voltage power distribution, MOSFET switching, relay
+                        protection, and electrical validation testing.
+                    </p>
+                </div>
+
+            </div>
+
+            <div id="skills-resume" class="resume-section">
+
+                <div class="resume-card">
+                    <h3>Technical Skills</h3>
+
+                    <div class="skills">
+                        <div class="skill">Power Systems</div>
+                        <div class="skill">Energy Efficiency</div>
+                        <div class="skill">California Title 24</div>
+                        <div class="skill">STM32</div>
+                        <div class="skill">PIC</div>
+                        <div class="skill">BeagleBone Black</div>
+                        <div class="skill">Real-Time Systems</div>
+                        <div class="skill">Sensor Integration</div>
+                        <div class="skill">DC-DC Converters</div>
+                        <div class="skill">Motor Drivers</div>
+                        <div class="skill">Battery Systems</div>
+                        <div class="skill">MOSFET Switching</div>
+                        <div class="skill">Revit</div>
+                        <div class="skill">AutoCAD</div>
+                        <div class="skill">Onshape</div>
+                        <div class="skill">C</div>
+                        <div class="skill">Embedded C</div>
+                        <div class="skill">HTML/CSS</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="education" class="resume-section">
+
+                <div class="resume-card">
+                    <h3>Bachelor of Science in Electrical Engineering</h3>
+                    <h4>University of California, Santa Cruz | Expected June 2026</h4>
+                    <p>
+                        GPA: 3.54
+                    </p>
+                    <p>
+                        Member of the College Scholars Program.
+                    </p>
+                </div>
+
+            </div>
+
+            <a class="resume-button" href="Peshlakai_Resume.pdf" target="_blank">
+                View Full Resume PDF
+            </a>
         </section>
 
-        <!-- CONTACT -->
-        <section>
-
+        <section id="contact">
             <h2 class="section-title">Contact</h2>
 
             <div class="contact">
-
                 <p>
                     <strong>Email:</strong>
                     <a href="mailto:xpeshlakai2222@gmail.com">
@@ -324,17 +432,18 @@
                     </a>
                 </p>
 
+                <p>
+                    <strong>LinkedIn:</strong>
+                    <a href="https://www.linkedin.com/in/xezaepeshlakai" target="_blank">
+                        linkedin.com/in/xezaepeshlakai
+                    </a>
+                </p>
+
                 <div class="qr-section">
-
                     <p><strong>Portfolio QR Code</strong></p>
-
-                    <!-- Replace with your actual QR code image -->
                     <img src="qr-code.png" alt="Portfolio QR Code">
-
                 </div>
-
             </div>
-
         </section>
 
     </div>
@@ -343,6 +452,26 @@
         © 2026 Xezae Peshlakai • Electrical Engineering Portfolio
     </div>
 
+    <script>
+        function showResumeSection(sectionId, button) {
+            const sections = document.querySelectorAll('.resume-section');
+            const buttons = document.querySelectorAll('.tab-button');
+
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            document.getElementById(sectionId).classList.add('active');
+            button.classList.add('active');
+        }
+    </script>
+
 </body>
 
 </html>
+```
+
