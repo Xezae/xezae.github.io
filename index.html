@@ -240,6 +240,25 @@
         border-top: 4px solid var(--turquoise);
     }
 
+    .internship-gallery {
+  display: flex;
+  gap: 15px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.internship-gallery img {
+  width: 320px;
+  border-radius: 18px;
+  border: 2px solid #3FE0D0;
+  box-shadow: 0 0 18px rgba(63, 224, 208, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.internship-gallery img:hover {
+  transform: scale(1.03);
+}
+
     @media (max-width: 850px) {
         .layout {
             grid-template-columns: 1fr;
@@ -399,8 +418,6 @@
                             embedded microcontroller control, OLED display interfacing, and real-time actuator response.
                         </p>
 
-                        <img src="robot.jpg" alt="WasteWizard Smart Trash Can">
-
                         <iframe
                             src="https://www.youtube.com/embed/UC7Tazu4jGg"
                             title="WasteWizard Demo Video"
@@ -438,7 +455,13 @@
                                 Title 24 compliance, NEC guidelines, conductor sizing, overcurrent protection,
                                 grounding, and safe installation practices.
                             </p>
-                        </div>
+                            
+                        <div class="internship-gallery">
+    <img src="sprig.jpg" alt="Sprig electrical design work">
+    <img src="sprigteam.jpg" alt="ArchKey internship team">
+  </div>
+
+</div>
 
                         <div class="resume-card">
                             <h3>Supervisor</h3>
@@ -518,7 +541,7 @@
     </div>
 
     <div class="footer">
-        © 2026 Xezae Peshlakai • Oceanic MySpace Engineering Portfolio
+        © 2026 Xezae Peshlakai • MySpace Engineering Portfolio
     </div>
 
 </div>
