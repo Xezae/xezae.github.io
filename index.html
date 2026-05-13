@@ -10,9 +10,9 @@
 
     <style>
         :root {
-            --forest-green: #1F3A32;
-            --soft-green: #2E5B4E;
-            --turquoise: #3FC1B0;
+            --ocean-dark: #0F4C5C;
+            --ocean-mid: #15616D;
+            --ocean-bright: #3FE0D0;
             --sandstone: #C17A4A;
             --cream: #F4F1EA;
             --warm-white: #FFFDF9;
@@ -37,7 +37,7 @@
         }
 
         nav {
-            background: var(--forest-green);
+            background: var(--ocean-dark);
             padding: 15px 30px;
             text-align: center;
             position: sticky;
@@ -50,18 +50,20 @@
             color: var(--warm-white);
             margin: 0 14px;
             font-weight: 600;
+            text-decoration: none;
         }
 
         nav a:hover {
-            color: var(--turquoise);
+            color: var(--ocean-bright);
         }
 
         .hero {
             background: linear-gradient(
                 135deg,
-                var(--forest-green) 0%,
-                var(--soft-green) 60%,
-                var(--turquoise) 100%
+                #0B3C49 0%,
+                var(--ocean-dark) 35%,
+                var(--ocean-mid) 70%,
+                var(--ocean-bright) 100%
             );
             color: var(--warm-white);
             padding: 90px 20px;
@@ -94,28 +96,41 @@
         .section-title {
             font-size: 34px;
             margin-bottom: 25px;
-            color: var(--forest-green);
+            color: var(--ocean-dark);
         }
 
-        .card, .project, .contact, .resume-card {
+        .card,
+        .project,
+        .contact,
+        .resume-card {
             background: var(--warm-white);
             border-radius: 14px;
             padding: 30px;
             margin-bottom: 35px;
             box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            transition: 0.25s ease;
+        }
+
+        .card:hover,
+        .project:hover,
+        .resume-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(63, 224, 208, 0.18);
         }
 
         .project {
             border-left: 6px solid var(--sandstone);
         }
 
-        .project h3, .resume-card h3 {
-            color: var(--forest-green);
+        .project h3,
+        .resume-card h3 {
+            color: var(--ocean-dark);
             margin-bottom: 10px;
             font-size: 26px;
         }
 
-        .project h4, .resume-card h4 {
+        .project h4,
+        .resume-card h4 {
             color: var(--sandstone);
             margin-bottom: 12px;
         }
@@ -145,8 +160,8 @@
         }
 
         .skill {
-            background: var(--turquoise);
-            color: var(--forest-green);
+            background: var(--ocean-bright);
+            color: var(--ocean-dark);
             padding: 10px 16px;
             border-radius: 30px;
             font-size: 14px;
@@ -162,7 +177,7 @@
 
         .resume-tabs button {
             background: var(--warm-white);
-            color: var(--forest-green);
+            color: var(--ocean-dark);
             border: 2px solid var(--sandstone);
             padding: 12px 18px;
             border-radius: 25px;
@@ -177,9 +192,9 @@
         }
 
         .resume-tabs button.active {
-            background: var(--turquoise);
-            color: var(--forest-green);
-            border-color: var(--turquoise);
+            background: var(--ocean-bright);
+            color: var(--ocean-dark);
+            border-color: var(--ocean-bright);
         }
 
         .resume-section {
@@ -193,27 +208,27 @@
         .resume-button {
             display: inline-block;
             margin-top: 15px;
-            background: var(--forest-green);
+            background: var(--ocean-dark);
             color: var(--warm-white);
             padding: 14px 22px;
             border-radius: 8px;
             font-weight: 700;
-        }
-
-        .resume-button:hover {
-            background: var(--turquoise);
-            color: var(--forest-green);
             text-decoration: none;
         }
 
+        .resume-button:hover {
+            background: var(--ocean-bright);
+            color: var(--ocean-dark);
+        }
+
         a {
-            color: var(--soft-green);
+            color: var(--ocean-mid);
             text-decoration: none;
             font-weight: 600;
         }
 
         a:hover {
-            color: var(--turquoise);
+            color: var(--ocean-bright);
             text-decoration: underline;
         }
 
@@ -227,7 +242,7 @@
             text-align: center;
             padding: 25px;
             color: var(--warm-white);
-            background: var(--forest-green);
+            background: var(--ocean-dark);
             font-size: 14px;
         }
 
