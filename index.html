@@ -259,6 +259,78 @@
   transform: scale(1.03);
 }
 
+.polaroid-card {
+  background: rgba(0, 20, 25, 0.75);
+  border: 2px solid #3FE0D0;
+  border-radius: 24px;
+  padding: 28px;
+  margin-top: 30px;
+  box-shadow: 0 0 25px rgba(63, 224, 208, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+.experience-header h2 {
+  color: #54F2E2;
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.experience-header h3 {
+  color: #9CEFE8;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+.experience-text {
+  line-height: 1.7;
+  color: #DDFDFC;
+  margin-bottom: 30px;
+}
+
+.scrapbook-gallery {
+  display: flex;
+  gap: 35px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.photo-frame {
+  background: white;
+  padding: 12px 12px 40px 12px;
+  width: 290px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: all 0.35s ease;
+  position: relative;
+}
+
+.photo-frame img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+.photo-frame p {
+  color: #222;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.photo-frame:hover {
+  transform: scale(1.04) rotate(0deg);
+  box-shadow: 0 0 30px rgba(63,224,208,0.45);
+}
+
+.tilt-left {
+  transform: rotate(-4deg);
+}
+
+.tilt-right {
+  transform: rotate(5deg);
+}
+    
     @media (max-width: 850px) {
         .layout {
             grid-template-columns: 1fr;
@@ -446,20 +518,34 @@
 
                     <div id="experience" class="resume-section active">
 
-                        <div class="resume-card">
-                            <h3>Design/Electrical Engineering Intern</h3>
-                            <h4>ArchKey Solutions | June 2025 - September 2025</h4>
-                            <p>
-                                Supported electrical design for commercial projects using BIM, VDC,
-                                Autodesk Revit, and AutoCAD with a focus on energy efficiency,
-                                Title 24 compliance, NEC guidelines, conductor sizing, overcurrent protection,
-                                grounding, and safe installation practices.
-                            </p>
-                            
-                        <div class="internship-gallery">
-    <img src="sprig.jpg" alt="Sprig electrical design work">
-    <img src="sprigteam.jpg" alt="ArchKey internship team">
+                        <div class="experience-card polaroid-card">
+
+  <div class="experience-header">
+    <h2>⚡ Design / Electrical Engineering Intern</h2>
+
+    <h3>
+      ArchKey Solutions | June 2025 - September 2025
+    </h3>
   </div>
+
+  <p class="experience-text">
+    Supported electrical design for commercial projects using BIM, VDC,
+    Autodesk Revit, and AutoCAD with a focus on energy efficiency,
+    Title 24 compliance, NEC guidelines, and safe installation practices.
+  </p>
+
+  <div class="scrapbook-gallery">
+
+    <div class="photo-frame tilt-left">
+      <img src="sprig.jpg" alt="Electrical design work">
+      <p>onsite tour from vdc to construction⚡</p>
+    </div>
+
+    <div class="photo-frame tilt-right">
+      <img src="sprigteam.jpg" alt="Internship team">
+      <p>summer internship crew 🌊</p>
+    </div>
+
 
 </div>
 
