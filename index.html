@@ -1,6 +1,3 @@
-Here’s the full updated website code with an interactive resume section based on your uploaded resume. 
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +6,19 @@ Here’s the full updated website code with an interactive resume section based 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xezae Peshlakai | Electrical Engineering Portfolio</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
+        :root {
+            --forest-green: #1F3A32;
+            --soft-green: #2E5B4E;
+            --turquoise: #3FC1B0;
+            --sandstone: #C17A4A;
+            --cream: #F4F1EA;
+            --warm-white: #FFFDF9;
+            --charcoal: #222222;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -21,31 +30,41 @@ Here’s the full updated website code with an interactive resume section based 
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
-            color: #222;
+            font-family: 'Montserrat', Arial, sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
             line-height: 1.6;
         }
 
         nav {
-            background: #10243d;
+            background: var(--forest-green);
             padding: 15px 30px;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
         }
 
         nav a {
-            color: white;
+            color: var(--warm-white);
             margin: 0 14px;
-            font-weight: bold;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: var(--turquoise);
         }
 
         .hero {
-            background: linear-gradient(135deg, #10243d, #1e3a5f);
-            color: white;
-            padding: 80px 20px;
+            background: linear-gradient(
+                135deg,
+                var(--forest-green) 0%,
+                var(--soft-green) 60%,
+                var(--turquoise) 100%
+            );
+            color: var(--warm-white);
+            padding: 90px 20px;
             text-align: center;
         }
 
@@ -55,8 +74,8 @@ Here’s the full updated website code with an interactive resume section based 
         }
 
         .hero h2 {
-            font-weight: normal;
-            color: #d7e3f2;
+            font-weight: 400;
+            color: #EAF7F4;
             margin-bottom: 20px;
         }
 
@@ -75,11 +94,11 @@ Here’s the full updated website code with an interactive resume section based 
         .section-title {
             font-size: 34px;
             margin-bottom: 25px;
-            color: #1e3a5f;
+            color: var(--forest-green);
         }
 
         .card, .project, .contact, .resume-card {
-            background: white;
+            background: var(--warm-white);
             border-radius: 14px;
             padding: 30px;
             margin-bottom: 35px;
@@ -87,17 +106,17 @@ Here’s the full updated website code with an interactive resume section based 
         }
 
         .project {
-            border-left: 5px solid #1e3a5f;
+            border-left: 6px solid var(--sandstone);
         }
 
         .project h3, .resume-card h3 {
-            color: #1e3a5f;
+            color: var(--forest-green);
             margin-bottom: 10px;
             font-size: 26px;
         }
 
         .project h4, .resume-card h4 {
-            color: #555;
+            color: var(--sandstone);
             margin-bottom: 12px;
         }
 
@@ -126,11 +145,12 @@ Here’s the full updated website code with an interactive resume section based 
         }
 
         .skill {
-            background: #1e3a5f;
-            color: white;
+            background: var(--turquoise);
+            color: var(--forest-green);
             padding: 10px 16px;
             border-radius: 30px;
             font-size: 14px;
+            font-weight: 700;
         }
 
         .resume-tabs {
@@ -141,18 +161,25 @@ Here’s the full updated website code with an interactive resume section based 
         }
 
         .resume-tabs button {
-            background: white;
-            color: #1e3a5f;
-            border: 2px solid #1e3a5f;
+            background: var(--warm-white);
+            color: var(--forest-green);
+            border: 2px solid var(--sandstone);
             padding: 12px 18px;
             border-radius: 25px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .resume-tabs button:hover {
+            background: var(--sandstone);
+            color: var(--warm-white);
         }
 
         .resume-tabs button.active {
-            background: #1e3a5f;
-            color: white;
+            background: var(--turquoise);
+            color: var(--forest-green);
+            border-color: var(--turquoise);
         }
 
         .resume-section {
@@ -166,19 +193,27 @@ Here’s the full updated website code with an interactive resume section based 
         .resume-button {
             display: inline-block;
             margin-top: 15px;
-            background: #1e3a5f;
-            color: white;
+            background: var(--forest-green);
+            color: var(--warm-white);
             padding: 14px 22px;
             border-radius: 8px;
-            font-weight: bold;
+            font-weight: 700;
         }
 
-        a {
-            color: #0066cc;
+        .resume-button:hover {
+            background: var(--turquoise);
+            color: var(--forest-green);
             text-decoration: none;
         }
 
+        a {
+            color: var(--soft-green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
         a:hover {
+            color: var(--turquoise);
             text-decoration: underline;
         }
 
@@ -191,7 +226,8 @@ Here’s the full updated website code with an interactive resume section based 
         .footer {
             text-align: center;
             padding: 25px;
-            color: #666;
+            color: var(--warm-white);
+            background: var(--forest-green);
             font-size: 14px;
         }
 
@@ -399,12 +435,8 @@ Here’s the full updated website code with an interactive resume section based 
                 <div class="resume-card">
                     <h3>Bachelor of Science in Electrical Engineering</h3>
                     <h4>University of California, Santa Cruz | Expected June 2026</h4>
-                    <p>
-                        GPA: 3.54
-                    </p>
-                    <p>
-                        Member of the College Scholars Program.
-                    </p>
+                    <p>GPA: 3.54</p>
+                    <p>Member of the College Scholars Program.</p>
                 </div>
 
             </div>
@@ -473,5 +505,3 @@ Here’s the full updated website code with an interactive resume section based 
 </body>
 
 </html>
-```
-
