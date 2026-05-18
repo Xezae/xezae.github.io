@@ -22,6 +22,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -171,7 +176,82 @@ a:hover {
     padding: 18px;
     margin-bottom: 16px;
 }
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+}
 
+.project-card.compact {
+    margin-bottom: 0;
+    padding: 18px;
+}
+
+.project-card.compact h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.project-card.compact p {
+    font-size: 0.92rem;
+    line-height: 1.45;
+    margin-bottom: 12px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 12px 0;
+}
+
+.project-tags span {
+    background: #E6FFFC;
+    color: var(--ocean-dark);
+    border: 1px solid rgba(63, 224, 208, 0.5);
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.project-links a {
+    font-size: 0.88rem;
+}
+
+details {
+    margin-top: 12px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--ocean-mid);
+}
+
+.project-image-small {
+    width: 100%;
+    max-height: 210px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-top: 12px;
+    background: white;
+}
+
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+    
 .project-card h3,
 .resume-card h3 {
     color: var(--ocean-dark);
@@ -398,6 +478,10 @@ iframe {
 
 .slide-card pre {
     overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%;
+
     padding: 14px;
     border-radius: 12px;
     background: rgba(0,0,0,0.45);
@@ -574,70 +658,57 @@ iframe {
             </div>
 
             <div class="box" id="projects">
-                <div class="box-title">My Projects</div>
-                <div class="box-content">
+    <div class="box-title">My Projects</div>
+    <div class="box-content">
 
-                    <div class="project-card">
-                        <h3>Automated Solar Panel Cleaning System</h3>
-                        <p>
-                            Designing an automated solar panel cleaning system to improve solar asset
-                            performance, energy yield, and maintenance efficiency by reducing dust and
-                            debris accumulation.
-                        </p>
-                        <p>
-                            Includes embedded control, motor drivers, sensors, actuators, 24V/12V/5V
-                            power distribution, MOSFET switching, relay protection, and real-time fault detection.
-                        </p>
-                    <!-- Solar Robot Demo Video -->
-    <iframe
-        src="https://www.youtube.com/embed/7jLNPNOVqEQ"
-        title="Solar Panel Cleaning Robot Demo"
-        allowfullscreen>
-    </iframe>
+        <div class="project-grid">
 
-    <!-- General Overview Slides -->
-    <iframe
-        src="https://docs.google.com/presentation/d/13A1f0DBG7lUBr-yuzFNj6W-8HdbFacBXtvdg_g8KqPo/embed?start=false&loop=false&delayms=3000"
-        title="Solar Panel Cleaning Robot Overview"
-        allowfullscreen>
-    </iframe>
+            <div class="project-card compact">
+                <h3>Automated Solar Panel Cleaning System</h3>
+                <p>
+                    Automated solar panel cleaning robot focused on improving solar efficiency through embedded control,
+                    power monitoring, relay protection, and MATLAB-based fault validation.
+                </p>
 
-    <!-- Testing & Integration Slides -->
-    <iframe
-        src="https://docs.google.com/presentation/d/1SFYtMKMk2wEUkvUfUlCSZUihQiLPdGovrnswN9DFg2A/embed?start=false&loop=false&delayms=3000"
-        title="System Testing and Integration"
-        allowfullscreen>
-    </iframe>
+                <div class="project-tags">
+                    <span>STM32</span>
+                    <span>INA3221</span>
+                    <span>MATLAB</span>
+                    <span>Fault Detection</span>
+                    <span>Clean Energy</span>
+                </div>
 
-</div>
+                <div class="project-links">
+                    <a href="https://youtube.com/shorts/7jLNPNOVqEQ?feature=share" target="_blank">Demo Video</a>
+                    <a href="https://docs.google.com/presentation/d/13A1f0DBG7lUBr-yuzFNj6W-8HdbFacBXtvdg_g8KqPo/edit?usp=sharing" target="_blank">Design Slides</a>
+                    <a href="https://docs.google.com/presentation/d/1SFYtMKMk2wEUkvUfUlCSZUihQiLPdGovrnswN9DFg2A/edit?usp=sharing" target="_blank">Testing Slides</a>
+                </div>
+            </div>
 
-                    <div class="project-card">
-    <h3>Embedded Fault Detection System</h3>
+            <div class="project-card compact">
+                <h3>Embedded Fault Detection System</h3>
+                <p>
+                    Voltage/current monitoring system that trips relay power during overcurrent, undervoltage,
+                    obstruction, or sustained abnormal loading conditions.
+                </p>
 
-    <p>
-        STM32 + INA3221 based voltage/current monitoring system designed to protect the solar panel cleaning robot from overcurrent, undervoltage, and obstruction faults using relay-based shutdown protection.
-    </p>
+                <div class="project-tags">
+                    <span>24V / 12V / 5V Rails</span>
+                    <span>Relay Shutdown</span>
+                    <span>Power Protection</span>
+                    <span>Embedded C</span>
+                </div>
 
-    <div class="slides-container">
-
-        <div class="slide-card">
-            <h4>24V Overcurrent Protection</h4>
+                <details>
+                    <summary>View Code Logic</summary>
 
 <pre><code>if (I24 > CURRENT_24V_LIMIT)
 {
     systemState = FAULT_24V_OVERCURRENT;
     RelayOff();
-}</code></pre>
+}
 
-            <p>
-                Detects abnormal motor loading caused by obstructions, jams, or excessive torque demand.
-            </p>
-        </div>
-
-        <div class="slide-card">
-            <h4>12V Sustained Fault Logic</h4>
-
-<pre><code>if (I12 > CURRENT_12V_LIMIT)
+if (I12 > CURRENT_12V_LIMIT)
 {
     if ((HAL_GetTick() - current12HighStart) >= 5000)
     {
@@ -645,57 +716,41 @@ iframe {
     }
 }</code></pre>
 
-            <p>
-                Prevents false trips while detecting prolonged abnormal current draw.
-            </p>
-        </div>
+                </details>
 
-        <div class="slide-card">
-            <h4>Startup Stabilization Delay</h4>
+                <img src="fault_current_threshold_graph.png"
+                     alt="Fault Current Threshold Graph"
+                     class="project-image-small">
 
-<pre><code>if ((HAL_GetTick() - startupStartTime) >= 2000)
-{
-    systemState = SYSTEM_RUNNING;
-}</code></pre>
+                <img src="fault_voltage_threshold_graph.png"
+                     alt="Fault Voltage Threshold Graph"
+                     class="project-image-small">
+            </div>
 
-            <p>
-                Allows voltage rails and capacitors to stabilize before enabling fault detection.
-            </p>
+            <div class="project-card compact">
+                <h3>WasteWizard Smart Trash Can</h3>
+                <p>
+                    Autonomous smart trash can using ultrasonic sensing, odor detection, OLED feedback,
+                    and actuator control for hands-free operation.
+                </p>
+
+                <div class="project-tags">
+                    <span>STM32</span>
+                    <span>Ultrasonic Sensor</span>
+                    <span>OLED</span>
+                    <span>Automation</span>
+                </div>
+
+                <div class="project-links">
+                    <a href="https://www.youtube.com/watch?v=UC7Tazu4jGg" target="_blank">Demo Video</a>
+                    <a href="https://docs.google.com/presentation/d/1GFlnDukIo_a9Z3QC4ZBWBCqdpyzvXppunGAbWvP69-M/edit?usp=sharing" target="_blank">Project Slides</a>
+                </div>
+            </div>
+
         </div>
 
     </div>
-
-    <img src="fault_current_threshold_graph.png"
-         alt="Fault Current Threshold Graph"
-         class="project-image">
-
-    <img src="fault_voltage_threshold_graph.png"
-         alt="Fault Voltage Threshold Graph"
-         class="project-image">
-
 </div>
-
-                    <div class="project-card">
-                        <h3>Automated Smart Trash Can System | WasteWizard</h3>
-                        <p>
-                            Designed and developed an autonomous smart trash can system using ultrasonic sensing,
-                            embedded microcontroller control, OLED display interfacing, and real-time actuator response.
-                        </p>
-
-                        <iframe
-                            src="https://www.youtube.com/embed/UC7Tazu4jGg"
-                            title="WasteWizard Demo Video"
-                            allowfullscreen>
-                        </iframe>
-
-                        <iframe
-                            src="https://docs.google.com/presentation/d/1GFlnDukIo_a9Z3QC4ZBWBCqdpyzvXppunGAbWvP69-M/embed?start=false&loop=false&delayms=3000"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-
-                </div>
-            </div>
 
             <div class="box" id="resume">
                 <div class="box-title">Interactive Resume</div>
