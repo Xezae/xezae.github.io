@@ -376,7 +376,44 @@ iframe {
     font-size: 0.85rem;
     color: var(--muted-text);
 }
+.slides-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
 
+.slide-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.slide-card h4 {
+    margin-bottom: 12px;
+    color: #3FE0D0;
+}
+
+.slide-card pre {
+    overflow-x: auto;
+    padding: 14px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.45);
+}
+
+.slide-card code {
+    color: #ffffff;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.project-image {
+    width: 100%;
+    border-radius: 18px;
+    margin-top: 20px;
+}
 /* Mobile */
 
 @media (max-width: 850px) {
@@ -452,9 +489,7 @@ iframe {
                 <div class="box-title">Current Status</div>
                 <div class="box-content">
                     <div class="status">
-                        Currently building an embedded fault detection system 
-                        with the STM32 that disconnects power during undervoltage
-                        or overcurrent conditions in my team's solar panel cleaning robot.
+                        05/17/26 "Running final testing on Solar Panel Robot."
                     </div>
                 </div>
             </div>
@@ -577,12 +612,68 @@ iframe {
 </div>
 
                     <div class="project-card">
-                        <h3>Power Monitoring and Fault Detection System</h3>
-                        <p>
-                            Developing voltage and current sensing circuits using STM32 microcontroller
-                            for real-time subsystem monitoring, fault detection that switches off relays instaniously, and safe shutdown behavior.
-                        </p>
-                    </div>
+    <h3>Embedded Fault Detection System</h3>
+
+    <p>
+        STM32 + INA3221 based voltage/current monitoring system designed to protect the solar panel cleaning robot from overcurrent, undervoltage, and obstruction faults using relay-based shutdown protection.
+    </p>
+
+    <div class="slides-container">
+
+        <div class="slide-card">
+            <h4>24V Overcurrent Protection</h4>
+
+<pre><code>if (I24 > CURRENT_24V_LIMIT)
+{
+    systemState = FAULT_24V_OVERCURRENT;
+    RelayOff();
+}</code></pre>
+
+            <p>
+                Detects abnormal motor loading caused by obstructions, jams, or excessive torque demand.
+            </p>
+        </div>
+
+        <div class="slide-card">
+            <h4>12V Sustained Fault Logic</h4>
+
+<pre><code>if (I12 > CURRENT_12V_LIMIT)
+{
+    if ((HAL_GetTick() - current12HighStart) >= 5000)
+    {
+        RelayOff();
+    }
+}</code></pre>
+
+            <p>
+                Prevents false trips while detecting prolonged abnormal current draw.
+            </p>
+        </div>
+
+        <div class="slide-card">
+            <h4>Startup Stabilization Delay</h4>
+
+<pre><code>if ((HAL_GetTick() - startupStartTime) >= 2000)
+{
+    systemState = SYSTEM_RUNNING;
+}</code></pre>
+
+            <p>
+                Allows voltage rails and capacitors to stabilize before enabling fault detection.
+            </p>
+        </div>
+
+    </div>
+
+    <img src="fault_current_threshold_graph.png"
+         alt="Fault Current Threshold Graph"
+         class="project-image">
+
+    <img src="fault_voltage_threshold_graph.png"
+         alt="Fault Voltage Threshold Graph"
+         class="project-image">
+
+</div>
 
                     <div class="project-card">
                         <h3>Automated Smart Trash Can System | WasteWizard</h3>
