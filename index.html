@@ -699,32 +699,9 @@ iframe {
                     <span>Embedded C</span>
                 </div>
 
-                <details>
-                    <summary>View Code Logic</summary>
-
-<pre><code>if (I24 > CURRENT_24V_LIMIT)
-{
-    systemState = FAULT_24V_OVERCURRENT;
-    RelayOff();
-}
-
-if (I12 > CURRENT_12V_LIMIT)
-{
-    if ((HAL_GetTick() - current12HighStart) >= 5000)
-    {
-        RelayOff();
-    }
-}</code></pre>
-
-                </details>
-
-                <img src="fault_current_threshold_graph.png"
-                     alt="Fault Current Threshold Graph"
-                     class="project-image-small">
-
-                <img src="fault_voltage_threshold_graph.png"
-                     alt="Fault Voltage Threshold Graph"
-                     class="project-image-small">
+                <div class="project-links">
+                    <a href="https://docs.google.com/presentation/d/1yPys6ud6UjtStdSvSwO8iOxjqkX9SQ8YeLiq78kLL44/edit?usp=sharing" target="_blank">Fault System Slides</a>
+                </div>
             </div>
 
             <div class="project-card compact">
