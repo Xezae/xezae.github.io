@@ -1,27 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>More About Me | Xezae Peshlakai</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About | Xezae Peshlakai</title>
 
 <style>
-
 :root {
-    --ocean-dark: #0B3C49;
-    --ocean-mid: #1B6B75;
-    --turquoise: #3FE0D0;
-    --sandstone: #B8794A;
-    --cream: #F6F3EC;
-    --white: #FFFDF9;
-    --soft-border: #D8D2C4;
-    --text: #1F2933;
-    --muted-text: #5F6B6D;
+    --black: #05070A;
+    --charcoal: #0E141C;
+    --panel: rgba(10, 15, 22, 0.86);
+    --white: #F7FAFC;
+    --muted: #A7B0BE;
+    --electric: #00A3FF;
+    --electric-soft: #5ED7FF;
+    --line: rgba(94, 215, 255, 0.22);
+    --shadow: 0 24px 60px rgba(0,0,0,0.45);
 }
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, Arial, sans-serif;
+    color: var(--white);
+    background: var(--black);
+    line-height: 1.75;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(rgba(5,7,10,0.78), rgba(5,7,10,0.95)),
+        url("santa-cruz-ocean.jpg") center/cover no-repeat;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(0,163,255,0.22), transparent 35%),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: auto, 70px 70px, 70px 70px;
 }
 
 img {
@@ -29,162 +63,166 @@ img {
     height: auto;
 }
 
-body {
-    margin: 0;
-    font-family: Verdana, Arial, sans-serif;
-    background: linear-gradient(135deg, var(--ocean-dark), var(--ocean-mid));
-    color: var(--text);
-    line-height: 1.6;
-}
-
 .page-wrapper {
-    max-width: 1100px;
-    margin: 28px auto;
-    background: var(--cream);
-    border: 1px solid rgba(63, 224, 208, 0.45);
-    border-radius: 18px;
-    padding: 28px;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.22);
+    width: min(1150px, calc(100% - 30px));
+    margin: 26px auto;
 }
 
-.header {
-    background: linear-gradient(135deg, var(--ocean-dark), var(--ocean-mid));
-    color: white;
-    padding: 30px;
-    border-radius: 18px;
-    margin-bottom: 34px;
+.hero {
+    min-height: 360px;
+    border-radius: 30px;
+    padding: 42px;
+    display: flex;
+    align-items: end;
+    background:
+        linear-gradient(135deg, rgba(5,7,10,0.45), rgba(5,7,10,0.9)),
+        url("santa-cruz-ocean.jpg") center/cover no-repeat;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
 }
 
-.header h1 {
-    margin: 0;
-    font-size: 3rem;
-    line-height: 1.1;
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, rgba(0,163,255,0.18), transparent 40%);
 }
 
-.header p {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    color: #DDFDFC;
+.hero-content {
+    position: relative;
+    max-width: 820px;
+}
+
+.kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(0,163,255,0.08);
+    border: 1px solid var(--line);
+    color: var(--electric-soft);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 18px 0 12px;
+    font-size: clamp(2.7rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+}
+
+.hero h1 span {
+    color: var(--electric-soft);
+}
+
+.hero p {
+    color: #D7E4F0;
+    font-size: 1.08rem;
+    max-width: 760px;
 }
 
 .section {
-    background: var(--white);
-    border: 1px solid var(--soft-border);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 32px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 34px;
+    margin-top: 22px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+}
+
+.section-title {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.6rem;
+    color: var(--white);
 }
 
 .section p {
-    line-height: 1.8;
-    font-size: 1.03rem;
-    margin-top: 0;
+    color: var(--muted);
+    font-size: 1.02rem;
 }
 
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    margin-top: 28px;
-    justify-items: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 26px;
 }
 
 .photo-card {
-    background: white;
-    padding: 12px 12px 34px 12px;
-    width: 100%;
-    max-width: 420px;
-    border: 1px solid var(--soft-border);
-    border-radius: 12px;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.16);
-    transition: 0.3s ease;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 12px;
+    transition: 0.25s ease;
 }
 
 .photo-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 28px rgba(0,0,0,0.2);
+    border-color: rgba(94,215,255,0.45);
 }
 
 .photo-card img {
     width: 100%;
-    height: auto;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    border-radius: 8px;
-    display: block;
+    border-radius: 16px;
 }
 
 .photo-card p {
+    margin: 12px 6px 6px;
+    color: var(--muted);
     text-align: center;
-    margin: 12px 0 0 0;
-    font-style: italic;
-    font-size: 0.92rem;
-    color: var(--muted-text);
-    line-height: 1.4;
-}
-
-.tilt-left,
-.tilt-right {
-    transform: none;
+    font-size: 0.9rem;
 }
 
 .back-button {
-    display: inline-block;
-    background: var(--ocean-dark);
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
     padding: 12px 18px;
     border-radius: 999px;
+    background: var(--electric);
+    color: #00111D;
+    font-weight: 900;
+    border: 1px solid rgba(94,215,255,0.5);
     text-decoration: none;
-    font-weight: bold;
-    margin-top: 8px;
 }
 
 .back-button:hover {
-    background: var(--turquoise);
-    color: var(--ocean-dark);
+    background: var(--electric-soft);
 }
 
 .footer {
     text-align: center;
-    margin: 20px 0;
-    color: white;
-    font-size: 0.9rem;
+    color: var(--muted);
+    padding: 24px;
 }
 
 @media (max-width: 850px) {
-    .page-wrapper {
-        margin: 12px;
-        padding: 14px;
-    }
-
-    .header {
-        padding: 22px;
-        margin-bottom: 22px;
-    }
-
-    .header h1 {
-        font-size: 2.2rem;
+    .hero {
+        min-height: 300px;
+        padding: 26px;
+        border-radius: 24px;
     }
 
     .section {
-        padding: 18px;
-        margin-bottom: 22px;
+        padding: 22px;
+        border-radius: 22px;
     }
 
     .photo-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .photo-card {
-        max-width: 100%;
-    }
-
-    .photo-card img {
-        aspect-ratio: 4 / 3;
     }
 }
-
 </style>
 </head>
 
@@ -192,138 +230,118 @@ body {
 
 <div class="page-wrapper">
 
-    <div class="header">
-        <h1>More About Me</h1>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="kicker">Engineer • Builder • Outdoorsman</div>
+            <h1>More Than <span>Engineering.</span></h1>
+            <p>
+                The way I approach engineering is heavily influenced by the outdoors, endurance, hands-on work, and the people around me. I value systems that are reliable, practical, and built with real-world purpose.
+            </p>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">Outdoors & Perspective</h2>
 
         <p>
-            Engineering, the outdoors, endurance, and building meaningful things.
+            Outside of engineering, much of my life revolves around surfing, snowboarding, backpacking, endurance events, and spending time outdoors. These experiences taught me adaptability, patience, and how to remain calm under pressure — skills that naturally carried into how I approach engineering projects and problem solving.
         </p>
-    </div>
-
-    <!-- INTRO -->
-
-    <div class="section">
 
         <p>
-            Outside of engineering, a lot of my life revolves around the outdoors,
-            endurance sports, hands-on work, and the people around me. Whether I am
-            surfing, snowboarding, backpacking, competing in triathlons, or working
-            on mechanical systems, I enjoy experiences that challenge me to keep
-            learning and improving. A lot of these experiences shape how I approach
-            engineering — staying adaptable, solving problems calmly, and building
-            systems that have a meaningful real-world impact.
+            Whether I am troubleshooting hardware, redesigning a mechanical system, or testing embedded electronics late into the night, I enjoy environments that require resilience, iteration, and continuous improvement.
         </p>
 
         <div class="photo-grid">
-
-            <div class="photo-card tilt-left">
-                <img src="family1.jpg">
-                <p>My Father, Mother, Twin, Little Bro and I, feature Mr. Clause</p>
+            <div class="photo-card">
+                <img src="family1.jpg" alt="Family photo" />
+                <p>Family has always been one of my biggest sources of motivation and support.</p>
             </div>
 
-            <div class="photo-card tilt-right">
-                <img src="surfing.jpg">
-                <p>Surfing Along The Coast</p>
+            <div class="photo-card">
+                <img src="surfing.jpg" alt="Surfing in Santa Cruz" />
+                <p>Surfing along the Santa Cruz coastline.</p>
             </div>
-
         </div>
+    </section>
 
-    </div>
-
-    <!-- SECTION 2 -->
-
-    <div class="section">
+    <section class="section">
+        <h2 class="section-title">Discipline & Endurance</h2>
 
         <p>
-            I have always enjoyed activities that push me mentally and physically.
-            Surfing, snowboarding and triathlons taught me discipline, consistency, and how
-            to stay focused even when things become uncomfortable. I enjoy setting
-            goals, improving over time, and learning from challenges rather than
-            avoiding them.
+            Surfing, snowboarding, backpacking, and triathlons taught me discipline, consistency, and how to continue performing when conditions become uncomfortable or unpredictable. I enjoy setting difficult goals, improving over time, and learning from failure instead of avoiding it.
+        </p>
+
+        <p>
+            That same mindset carried directly into my engineering work, especially during my solar panel cleaning robot project where redesigns, hardware failures, and technical criticism pushed me to continuously improve the system instead of settling for an average solution.
         </p>
 
         <div class="photo-grid">
-
-            <div class="photo-card tilt-right">
-                <img src="snowboarding.jpg">
-                <p>Snowboarding with friends at Kirkwood</p>
+            <div class="photo-card">
+                <img src="snowboarding.jpg" alt="Snowboarding" />
+                <p>Snowboarding with friends at Kirkwood.</p>
             </div>
 
-            <div class="photo-card tilt-left">
-                <img src="triathlon.jpg">
-                <p>Photo of my friends and I finishing the biking portion of an Olympic Triathlon we decided to do the day of</p>
+            <div class="photo-card">
+                <img src="triathlon.jpg" alt="Triathlon" />
+                <p>Completing the biking portion of an Olympic triathlon with friends.</p>
             </div>
-
         </div>
+    </section>
 
-    </div>
-
-    <!-- SECTION 3 -->
-
-    <div class="section">
+    <section class="section">
+        <h2 class="section-title">Hands-On Engineering</h2>
 
         <p>
-            Backpacking and mechanic work helped me appreciate simplicity,
-            self-reliance, and understanding how systems function in the real world.
-            I have always enjoyed working with my hands, troubleshooting problems,
-            and learning how things operate beyond theory. A lot of my interest in
-            engineering came from helping my father with construction/mechanical projects
-            from buidling dog houses to working with him on fixing motorcycles, vehicle maitenance, to working
-            on the family project Chevy C10 truck.
+            A large part of my interest in engineering came from working with my father on construction, mechanical repairs, and fabrication projects growing up. From rebuilding motorcycles and vehicle maintenance to helping work on our family Chevy C10 truck, I became interested in understanding how systems operate beyond theory.
+        </p>
+
+        <p>
+            Backpacking and mechanic work also taught me to appreciate simplicity, reliability, and self-sufficiency. I enjoy building things with my hands, troubleshooting real systems, and understanding the physical side of engineering rather than only working behind a screen.
         </p>
 
         <div class="photo-grid">
-
-            <div class="photo-card tilt-left">
-                <img src="backpacking.jpg">
-                <p>Backpacking in Yosemite</p>
+            <div class="photo-card">
+                <img src="backpacking.jpg" alt="Backpacking" />
+                <p>Backpacking through Yosemite.</p>
             </div>
 
-            <div class="photo-card tilt-right">
-                <img src="mechanic1.jpg">
-                <p>Maitenance on my 2001 Harley Davidson Sportster</p>
+            <div class="photo-card">
+                <img src="mechanic1.jpg" alt="Motorcycle maintenance" />
+                <p>Maintenance work on my 2001 Harley-Davidson Sportster.</p>
             </div>
-
         </div>
+    </section>
 
-    </div>
-
-    <!-- FINAL -->
-
-    <div class="section">
+    <section class="section">
+        <h2 class="section-title">Long-Term Vision</h2>
 
         <p>
-            Long term, I hope to work on technologies that combine sustainability,
-            embedded systems, power systems, and clean energy while continuing to
-            stay connected to the outdoors and the communities around me. I want to
-            build systems that are both technically meaningful and capable of making
-            a positive real-world impact.
+            Long term, I hope to work on technologies that combine sustainability, embedded systems, power systems, and clean energy infrastructure. I want to contribute to systems that are technically meaningful, scalable, and capable of creating measurable real-world impact.
+        </p>
+
+        <p>
+            I am especially interested in building technologies that improve energy reliability, accessibility, and efficiency while staying connected to the communities and environments that inspired me to pursue engineering in the first place.
         </p>
 
         <div class="photo-grid">
-
-            <div class="photo-card tilt-right">
-                <img src="mechanic2.jpg">
-                <p>My Father and I on our motorcycles</p>
+            <div class="photo-card">
+                <img src="mechanic2.jpg" alt="Motorcycles" />
+                <p>My father and I on our motorcycles.</p>
             </div>
 
-            <div class="photo-card tilt-left">
-                <img src="family2.jpeg">
-                <p>People Who Matter Most</p>
+            <div class="photo-card">
+                <img src="family2.jpeg" alt="Family" />
+                <p>The people who matter most to me.</p>
             </div>
-
         </div>
 
-    </div>
+        <a href="index.html" class="back-button">← Back To Portfolio</a>
+    </section>
 
-    <a href="index.html" class="back-button">
-        ← Back To Portfolio
-    </a>
+    <footer class="footer">
+        © 2026 Xezae Peshlakai • Electrical Engineering Portfolio
+    </footer>
 
-</div>
-
-<div class="footer">
-    © 2026 Xezae Peshlakai
 </div>
 
 </body>
