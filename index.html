@@ -1,306 +1,442 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xezae Peshlakai | Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Xezae Peshlakai | Electrical Engineering Portfolio</title>
 
 <style>
 :root {
-    --ocean-dark: #0B3C49;
-    --ocean-mid: #1B6B75;
-    --turquoise: #3FE0D0;
-    --sandstone: #B8794A;
-    --cream: #F6F3EC;
-    --white: #FFFDF9;
-    --soft-border: #D8D2C4;
-    --text: #1F2933;
-    --muted-text: #5F6B6D;
+    --black: #05070A;
+    --charcoal: #0B0F14;
+    --panel: rgba(10, 15, 22, 0.86);
+    --panel-solid: #0E141C;
+    --white: #F7FAFC;
+    --muted: #A7B0BE;
+    --electric: #00A3FF;
+    --electric-soft: #5ED7FF;
+    --line: rgba(94, 215, 255, 0.24);
+    --glass: rgba(255, 255, 255, 0.055);
+    --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
 }
 
 * {
     box-sizing: border-box;
 }
 
-html, body {
+html {
+    scroll-behavior: smooth;
     overflow-x: hidden;
-    max-width: 100%;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
 }
 
 body {
     margin: 0;
-    font-family: Verdana, Arial, sans-serif;
-    background: linear-gradient(135deg, var(--ocean-dark), var(--ocean-mid));
-    color: var(--text);
+    font-family: Inter, Helvetica, Arial, sans-serif;
+    background: var(--black);
+    color: var(--white);
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(180deg, rgba(5, 7, 10, 0.58), rgba(5, 7, 10, 0.95)),
+        url("santa-cruz-ocean.jpg") center/cover no-repeat;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 18% 10%, rgba(0, 163, 255, 0.28), transparent 35%),
+        radial-gradient(circle at 86% 22%, rgba(94, 215, 255, 0.12), transparent 32%),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: auto, auto, 72px 72px, 72px 72px;
+    pointer-events: none;
+}
+
+img, iframe, pre, code {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
 }
 
 a {
-    color: var(--ocean-mid);
-    font-weight: bold;
+    color: var(--electric-soft);
     text-decoration: none;
+    font-weight: 700;
 }
 
 a:hover {
-    color: var(--turquoise);
-    text-decoration: underline;
+    color: var(--white);
 }
 
 .top-bar {
-    background: var(--ocean-dark);
-    color: white;
-    padding: 12px 20px;
-    border-bottom: 2px solid var(--turquoise);
-    font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: rgba(5, 7, 10, 0.82);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--line);
 }
 
-.top-bar a {
-    color: white;
-    margin-right: 18px;
+.nav-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.brand {
+    color: var(--white);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    color: var(--electric-soft);
 }
 
 .site-wrapper {
-    max-width: 1150px;
+    width: min(1180px, calc(100% - 32px));
     margin: 28px auto;
-    background: var(--cream);
-    border: 1px solid rgba(63, 224, 208, 0.45);
-    border-radius: 18px;
-    box-shadow: 0 18px 45px rgba(0,0,0,0.22);
-    padding: 22px;
 }
 
-.profile-header {
-    background: linear-gradient(135deg, var(--ocean-dark), var(--ocean-mid));
-    color: white;
-    padding: 28px;
-    border-radius: 18px;
-    margin-bottom: 22px;
+.hero {
+    min-height: 520px;
+    display: grid;
+    align-items: end;
+    padding: 44px;
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    background:
+        linear-gradient(135deg, rgba(5, 7, 10, 0.46), rgba(5, 7, 10, 0.92)),
+        url("santa-cruz-ocean.jpg") center/cover no-repeat;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
 }
 
-.profile-header h1 {
-    margin: 0;
-    font-size: 42px;
-    line-height: 1.1;
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, rgba(0, 163, 255, 0.22), transparent 38%);
+    pointer-events: none;
 }
 
-.profile-header p {
-    margin-top: 10px;
-    color: #DDFDFC;
-    font-size: 17px;
+.hero-content {
+    position: relative;
+    max-width: 860px;
+}
+
+.kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--electric-soft);
+    border: 1px solid var(--line);
+    background: rgba(0, 163, 255, 0.08);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 18px 0 10px;
+    font-size: clamp(2.9rem, 7vw, 6.7rem);
+    line-height: 0.9;
+    letter-spacing: -0.075em;
+}
+
+.hero h1 span {
+    color: var(--electric-soft);
+    text-shadow: 0 0 32px rgba(0, 163, 255, 0.55);
+}
+
+.hero p {
+    max-width: 760px;
+    color: #D8E0EA;
+    font-size: clamp(1rem, 2vw, 1.22rem);
+    margin: 0 0 26px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: var(--electric);
+    color: #00111D;
+    border: 1px solid rgba(94, 215, 255, 0.6);
+    box-shadow: 0 0 28px rgba(0, 163, 255, 0.25);
+    font-weight: 900;
+}
+
+.button:hover {
+    color: #00111D;
+    background: var(--electric-soft);
+    transform: translateY(-1px);
+}
+
+.button.secondary {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--white);
+    border: 1px solid var(--line);
+    box-shadow: none;
+}
+
+.button.secondary:hover {
+    background: rgba(94, 215, 255, 0.12);
+    color: var(--white);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 18px 0 22px;
+}
+
+.stat {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 18px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.stat strong {
+    display: block;
+    font-size: 1.45rem;
+    color: var(--white);
+}
+
+.stat span {
+    color: var(--muted);
+    font-size: 0.85rem;
 }
 
 .layout {
     display: grid;
-    grid-template-columns: 310px 1fr;
-    gap: 20px;
+    grid-template-columns: 330px minmax(0, 1fr);
+    gap: 22px;
+    align-items: start;
+}
+
+aside {
+    position: sticky;
+    top: 82px;
 }
 
 .box {
-    background: var(--white);
-    border: 1px solid var(--soft-border);
-    border-radius: 14px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 24px;
     margin-bottom: 18px;
     overflow: hidden;
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(16px);
 }
 
 .box-title {
-    background: #F0EEE7;
-    color: var(--ocean-dark);
-    padding: 10px 14px;
-    font-weight: bold;
-    border-bottom: 1px solid var(--soft-border);
-    letter-spacing: 0.3px;
+    padding: 14px 18px;
+    color: var(--white);
+    border-bottom: 1px solid var(--line);
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    background: rgba(255, 255, 255, 0.035);
 }
 
 .box-content {
-    padding: 18px;
+    padding: 20px;
 }
 
 .profile-pic {
-    width: 100%;
-    max-width: 220px;
-    display: block;
-    margin: 0 auto 12px auto;
-    border: 2px solid var(--soft-border);
+    width: 168px;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    display: block;
+    margin: 0 auto 16px;
+    border-radius: 26px;
+    border: 1px solid rgba(94, 215, 255, 0.48);
+    box-shadow: 0 0 32px rgba(0, 163, 255, 0.18);
+}
+
+.profile-mini {
+    text-align: center;
+}
+
+.profile-mini strong {
+    font-size: 1.2rem;
+}
+
+.profile-mini p {
+    margin: 6px 0;
+    color: var(--muted);
 }
 
 .status {
-    background: #FFF8E8;
-    border: 1px solid #E4CFA9;
-    border-radius: 12px;
-    padding: 12px;
-    font-size: 14px;
-    color: var(--text);
+    background: rgba(0, 163, 255, 0.09);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 14px;
+    color: #DDEFFF;
+    font-size: 0.94rem;
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    font-size: 13px;
+    gap: 10px;
 }
 
-.contact-grid div {
-    background: var(--cream);
-    border: 1px solid var(--soft-border);
-    border-radius: 10px;
-    padding: 8px;
+.contact-grid a {
+    display: block;
     text-align: center;
+    background: var(--glass);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 10px 8px;
+    color: var(--white);
+    font-size: 0.9rem;
 }
 
-.skill-tag {
-    display: inline-block;
-    background: #E6FFFC;
-    color: var(--ocean-dark);
-    border: 1px solid rgba(63, 224, 208, 0.5);
-    padding: 6px 10px;
+.contact-grid a:hover {
+    background: rgba(0, 163, 255, 0.14);
+}
+
+.skill-tag, .project-tags span {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0, 163, 255, 0.09);
+    color: #DDF4FF;
+    border: 1px solid rgba(94, 215, 255, 0.28);
+    padding: 7px 10px;
     margin: 4px;
     border-radius: 999px;
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 0.78rem;
+    font-weight: 800;
 }
 
-.project-card,
-.resume-card {
-    background: white;
-    border: 1px solid var(--soft-border);
-    border-radius: 14px;
-    padding: 18px;
-    margin-bottom: 16px;
+.section-lead {
+    color: var(--muted);
+    max-width: 760px;
+    margin-top: 0;
 }
+
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
 }
 
-.project-card.compact {
-    margin-bottom: 0;
-    padding: 18px;
+.project-card, .resume-card, .friend-card {
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 20px;
+    transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
 }
 
-.project-card.compact h3 {
-    font-size: 1.15rem;
-    margin-bottom: 8px;
+.project-card:hover, .resume-card:hover, .friend-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(94, 215, 255, 0.55);
+    background: rgba(0, 163, 255, 0.075);
 }
 
-.project-card.compact p {
-    font-size: 0.92rem;
-    line-height: 1.45;
-    margin-bottom: 12px;
+.project-card.featured {
+    grid-column: span 2;
+    background:
+        linear-gradient(135deg, rgba(0, 163, 255, 0.16), rgba(255, 255, 255, 0.045));
 }
 
-.project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin: 12px 0;
+.project-card h3, .resume-card h3, .friend-card h3 {
+    margin: 0 0 8px;
+    color: var(--white);
+    font-size: 1.16rem;
+    line-height: 1.25;
 }
 
-.project-tags span {
-    background: #E6FFFC;
-    color: var(--ocean-dark);
-    border: 1px solid rgba(63, 224, 208, 0.5);
-    border-radius: 999px;
-    padding: 5px 9px;
-    font-size: 0.75rem;
-    font-weight: bold;
+.project-card p, .resume-card p, .friend-card p {
+    color: var(--muted);
+    margin: 0 0 12px;
 }
 
 .project-links {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 12px;
+    margin-top: 14px;
 }
 
 .project-links a {
-    font-size: 0.88rem;
-}
-
-details {
-    margin-top: 12px;
-}
-
-summary {
-    cursor: pointer;
-    font-weight: bold;
-    color: var(--ocean-mid);
-}
-
-.project-image-small {
-    width: 100%;
-    max-height: 210px;
-    object-fit: contain;
-    border-radius: 12px;
-    margin-top: 12px;
-    background: white;
-}
-
-pre {
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-    
-.project-card h3,
-.resume-card h3 {
-    color: var(--ocean-dark);
-    margin-top: 0;
-    margin-bottom: 6px;
-}
-
-.resume-card h4 {
-    color: var(--sandstone);
-    margin-top: 0;
-    margin-bottom: 8px;
-}
-
-.project-card img {
-    max-width: 100%;
-    border-radius: 12px;
-    border: 1px solid var(--soft-border);
-    margin: 12px 0;
-}
-
-iframe {
-    width: 100%;
-    height: 420px;
-    border: 1px solid var(--soft-border);
-    border-radius: 14px;
-    margin-top: 12px;
-    background: white;
+    color: var(--electric-soft);
+    border-bottom: 1px solid rgba(94, 215, 255, 0.35);
+    font-size: 0.92rem;
 }
 
 .resume-tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 15px;
+    gap: 10px;
+    margin-bottom: 16px;
 }
 
 .resume-tabs button {
-    background: var(--cream);
-    color: var(--ocean-dark);
-    border: 1px solid var(--soft-border);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--muted);
+    border: 1px solid var(--line);
     border-radius: 999px;
-    padding: 8px 12px;
+    padding: 10px 13px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 900;
 }
 
-.resume-tabs button.active {
-    background: var(--ocean-dark);
-    color: white;
+.resume-tabs button.active, .resume-tabs button:hover {
+    background: var(--electric);
+    color: #00111D;
 }
 
 .resume-section {
@@ -311,428 +447,299 @@ iframe {
     display: block;
 }
 
-.button {
-    display: inline-block;
-    background: var(--ocean-dark);
-    color: white;
-    padding: 10px 15px;
-    margin-top: 10px;
-    border-radius: 999px;
-    border: none;
+.resume-card h4 {
+    color: var(--electric-soft);
+    margin: 0 0 10px;
+    font-size: 0.94rem;
 }
 
-.button:hover {
-    background: var(--turquoise);
-    color: var(--ocean-dark);
-    text-decoration: none;
-}
-
-.footer {
-    text-align: center;
-    background: var(--ocean-dark);
-    color: white;
-    padding: 15px;
-    margin-top: 18px;
-    border-radius: 14px;
-}
-
-/* Internship / Scrapbook Section */
-
-.polaroid-card {
-    background: #0E353B;
-    border: 1px solid rgba(63, 224, 208, 0.45);
-    border-radius: 18px;
-    padding: 24px;
-    margin-top: 20px;
-    box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-}
-
-.experience-header h2 {
-    color: #54F2E2;
-    font-size: 1.7rem;
-    margin-bottom: 8px;
-}
-
-.experience-header h3 {
-    color: #BDF9F4;
-    font-weight: normal;
-    margin-bottom: 18px;
-}
-
-.experience-text {
-    line-height: 1.7;
-    color: #DDFDFC;
-    margin-bottom: 26px;
+.experience-card {
+    background: rgba(0, 163, 255, 0.08);
 }
 
 .scrapbook-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    justify-items: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 16px;
 }
 
 .photo-frame {
-    background: white;
-    padding: 12px 12px 36px 12px;
-    width: 100%;
-    max-width: 290px;
-    border-radius: 10px;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.25);
-    transition: all 0.3s ease;
-    position: relative;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 10px;
 }
 
 .photo-frame img {
     width: 100%;
-    height: auto;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    border-radius: 6px;
-    display: block;
+    border-radius: 14px;
 }
 
 .photo-frame p {
-    color: #222;
+    color: var(--muted);
     text-align: center;
-    margin-top: 12px;
-    font-size: 0.9rem;
-    font-style: italic;
+    margin: 8px 0 2px;
+    font-size: 0.82rem;
 }
-
-.photo-frame:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 24px rgba(63,224,208,0.35);
-}
-
-.tilt-left,
-.tilt-right {
-    transform: none;
-}
-
-/* Friends / References */
 
 .friends-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    grid-template-columns: 1fr;
+    gap: 12px;
 }
 
-.friend-card {
-    background: #FFFFFF;
-    border: 1px solid var(--soft-border);
-    border-radius: 14px;
-    padding: 12px;
+.footer {
     text-align: center;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-    transition: 0.3s ease;
-}
-
-.friend-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-}
-
-.friend-card img {
-    width: 100%;
-    max-width: 180px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid var(--soft-border);
-    margin: 0 auto 10px auto;
-    display: block;
-}
-
-.friend-card h3 {
-    margin: 6px 0 4px 0;
-    color: var(--ocean-dark);
-    font-size: 1rem;
-}
-
-.friend-card p {
-    margin: 0;
-    font-size: 0.85rem;
-    color: var(--muted-text);
-}
-.slides-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    color: var(--muted);
+    padding: 24px;
     margin-top: 20px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: rgba(5, 7, 10, 0.72);
 }
 
-.slide-card {
-    background: rgba(255,255,255,0.08);
-    border-radius: 18px;
-    padding: 20px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
-
-.slide-card h4 {
-    margin-bottom: 12px;
-    color: #3FE0D0;
-}
-
-.slide-card pre {
-    overflow-x: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    max-width: 100%;
-
-    padding: 14px;
-    border-radius: 12px;
-    background: rgba(0,0,0,0.45);
-}
-
-.slide-card code {
-    color: #ffffff;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-.project-image {
-    width: 100%;
-    border-radius: 18px;
-    margin-top: 20px;
-}
-/* Mobile */
-
-@media (max-width: 850px) {
-    .site-wrapper {
-        margin: 12px;
-        padding: 14px;
+@media (max-width: 980px) {
+    .stats-grid, .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .layout {
         grid-template-columns: 1fr;
     }
 
-    .profile-header {
-        padding: 22px;
+    aside {
+        position: static;
     }
 
-    .profile-header h1 {
-        font-size: 34px;
+    .project-card.featured {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 650px) {
+    .site-wrapper {
+        width: min(100% - 20px, 1180px);
+        margin: 10px auto 18px;
     }
 
-    .profile-pic {
-        max-width: 160px;
+    .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px;
     }
 
-    iframe {
-        height: 300px;
+    .nav-links {
+        justify-content: flex-start;
+        gap: 12px;
     }
 
-    .friends-grid {
+    .hero {
+        min-height: 450px;
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    .stats-grid, .project-grid, .scrapbook-gallery, .contact-grid {
         grid-template-columns: 1fr;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr 1fr;
+    .box-content {
+        padding: 16px;
     }
-}  
+}
 </style>
 </head>
 
 <body>
 
-<div class="top-bar">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-    <a href="#contact">Contact</a>
-</div>
-
-<div class="site-wrapper">
-
-    <div class="profile-header">
-        <h1>Xezae Peshlakai</h1>
-        <p>Electrical Engineering Student • Embedded Systems • Clean Energy • Power Electronics</p>
+<nav class="top-bar">
+    <div class="nav-inner">
+        <a class="brand" href="#top">Xezae Peshlakai</a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </div>
     </div>
+</nav>
+
+<div class="site-wrapper" id="top">
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="kicker">Electrical Engineering • Clean Energy • Embedded Systems</div>
+            <h1>Building hardware for a <span>cleaner grid.</span></h1>
+            <p>
+                I am an electrical engineering student focused on power systems, embedded controls,
+                hardware prototyping, and sustainable energy technologies. My work connects real hardware,
+                fault detection, power distribution, and practical design validation.
+            </p>
+            <div class="hero-actions">
+                <a class="button" href="#projects">View Engineering Projects</a>
+                <a class="button secondary" href="Peshlakai_Resume.pdf" target="_blank">Download Resume</a>
+                <a class="button secondary" href="mailto:xpeshlakai2222@gmail.com">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats-grid" aria-label="Portfolio highlights">
+        <div class="stat"><strong>EE</strong><span>UCSC Electrical Engineering</span></div>
+        <div class="stat"><strong>24V</strong><span>Mixed-voltage power systems</span></div>
+        <div class="stat"><strong>STM32</strong><span>Embedded monitoring and control</span></div>
+        <div class="stat"><strong>Clean Energy</strong><span>Solar-focused hardware design</span></div>
+    </section>
 
     <div class="layout">
 
         <aside>
+            <div class="box">
+                <div class="box-title">Profile</div>
+                <div class="box-content profile-mini">
+                    <img src="profile.jpg" alt="Xezae Peshlakai" class="profile-pic" />
+                    <strong>Xezae Peshlakai</strong>
+                    <p>Electrical Engineering • Clean Energy Systems • Embedded Hardware</p>
+                    <p style="color: var(--electric-soft); font-weight: 800;">B.S. Electrical Engineering • UCSC • GPA 3.54</p>
+                </div>
+            </div>
 
             <div class="box">
-                <div class="box-title">Profile Picture</div>
-                <div class="box-content">
-                    <img src="profile.jpg" alt="Xezae Peshlakai" class="profile-pic">
-                    <p><strong>Xezae Peshlakai</strong></p>
-        <p>Electrical Engineering Student</p>
-        <p style="color:#3FE0D0;">
-            ● Graduating soon! June 2026, pls hire me
-        </p>
-    </div>
-</div>
-
-            <div class="box">
-                <div class="box-title">Current Status</div>
+                <div class="box-title">Current Focus</div>
                 <div class="box-content">
                     <div class="status">
-                        05/17/26 "Running final testing on Solar Panel Robot."
+                        Running final testing on an automated solar panel cleaning robot with embedded fault detection, relay shutdown, and mixed-voltage power validation.
                     </div>
                 </div>
             </div>
 
             <div class="box" id="contact">
-                <div class="box-title">Contact Me</div>
+                <div class="box-title">Contact</div>
                 <div class="box-content">
                     <div class="contact-grid">
-                        <div><a href="mailto:xpeshlakai2222@gmail.com">Email</a></div>
-                        <div><a href="https://github.com/xezae" target="_blank">GitHub</a></div>
-                        <div><a href="https://www.linkedin.com/in/xezaepeshlakai" target="_blank">LinkedIn</a></div>
-                        <div><a href="Peshlakai_Resume.pdf" target="_blank">Resume</a></div>
+                        <a href="mailto:xpeshlakai2222@gmail.com">Email</a>
+                        <a href="https://github.com/xezae" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/xezaepeshlakai" target="_blank">LinkedIn</a>
+                        <a href="Peshlakai_Resume.pdf" target="_blank">Resume</a>
                     </div>
                 </div>
             </div>
 
             <div class="box">
-    <div class="box-title">Top Renewable Energy Skills</div>
-    <div class="box-content">
-        <span class="skill-tag">Power Electronics</span>
-        <span class="skill-tag">Power Systems</span>
-        <span class="skill-tag">Embedded Systems & Controls</span>
-        <span class="skill-tag">Hardware Prototyping</span>
-        <span class="skill-tag">Voltage & Current Monitoring</span>
-        <span class="skill-tag">Fault Detection Systems</span>
-        <span class="skill-tag">DC Power Distribution</span>
-        <span class="skill-tag">Sensor Integration</span>
-        <span class="skill-tag">Relay & MOSFET Switching</span>
-        <span class="skill-tag">Energy Efficiency</span>
-        <span class="skill-tag">Sustainability-Focused Design</span>
-        <span class="skill-tag">Technical Communication</span>
-        <span class="skill-tag">KiCad</span>
-        <span class="skill-tag">MATLAB</span>
-        <span class="skill-tag">STM32</span>
-    </div>
-</div>
-<div class="box">
-    <div class="box-title">Embedded Systems & Electronics Mentor</div>
-
-    <div class="box-content">
-
-        <div class="friends-grid">
-
-            <div class="friend-card">
-
-                <h3>Koushik Devarajan (DK)</h3>
-
-                <p>
-                    UCSC Electrical Engineering TA
-                </p>
-                
-                <p style="margin-top:10px; font-size:0.78rem; color:#666;">
-        Contact information available upon request.
-    </p>
-                
+                <div class="box-title">Core Skills</div>
+                <div class="box-content">
+                    <span class="skill-tag">Power Electronics</span>
+                    <span class="skill-tag">Power Systems</span>
+                    <span class="skill-tag">Embedded C</span>
+                    <span class="skill-tag">STM32</span>
+                    <span class="skill-tag">BeagleBone Black</span>
+                    <span class="skill-tag">KiCad</span>
+                    <span class="skill-tag">Sensor Integration</span>
+                    <span class="skill-tag">Hardware Validation</span>
+                    <span class="skill-tag">System Troubleshooting</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">Fault Detection</span>
+                    <span class="skill-tag">Relay Protection</span>
+                    <span class="skill-tag">MOSFET Switching</span>
+                    <span class="skill-tag">DC Power Distribution</span>
+                    <span class="skill-tag">Revit</span>
+                    <span class="skill-tag">AutoCAD</span>
+                    <span class="skill-tag">Onshape</span>
+                </div>
             </div>
 
-    </div>
-</div>
+            <div class="box">
+                <div class="box-title">Mentor / Reference</div>
+                <div class="box-content">
+                    <div class="friends-grid">
+                        <div class="friend-card">
+                            <h3>Koushik Devarajan (DK)</h3>
+                            <p>UCSC Electrical Engineering TA</p>
+                            <p style="font-size:0.82rem;">Contact information available upon request.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </aside>
 
         <main>
-
-            <div class="box" id="about">
+            <section class="box" id="about">
                 <div class="box-title">About Me</div>
                 <div class="box-content">
-                    <p>
-                        I strive to blend engineering with a sustainability-driven perspective,
-                        guided by my Navajo heritage and a commitment to building solutions that
-                        support both community and environment.
+                    <p class="section-lead">
+                        I strive to blend engineering with a sustainability-driven perspective, guided by my Navajo heritage and a commitment to building solutions that support both community and environment.
                     </p>
                     <p>
-                        I am especially interested in power systems, hardware design, embedded control,
-                        and clean energy technologies where technical decisions directly shape efficiency,
-                        reliability, and long-term impact.
+                        I am especially interested in power systems, embedded hardware, electromechanical systems, and renewable energy technologies where engineering decisions directly affect efficiency, reliability, and scalability. My work focuses on turning concepts into fully tested systems through electrical schematics, embedded firmware, sensor integration, CAD modeling, power distribution, and iterative hardware validation.
+                    </p>
+                    <a href="aboutme.html" class="button secondary">More About Me</a>
+                </div>
+            </section>
+
+            <section class="box" id="projects">
+                <div class="box-title">Selected Engineering Projects</div>
+                <div class="box-content">
+                    <p class="section-lead">
+                        A snapshot of hardware-focused projects involving clean energy, embedded controls, power monitoring, and system-level validation.
                     </p>
 
-                    <a href="aboutme.html" class="button">
-    𖠰 More About Me 𖠰
-</a>
+                    <div class="project-grid">
+                        <article class="project-card featured">
+                            <h3>Automated Solar Panel Cleaning System</h3>
+                            <p>
+                                Designed and built a $600 autonomous solar panel cleaning robot for the residential market, intended for homeowners who cannot easily access their roofs or prefer to avoid recurring third-party cleaning services.
+                            </p>
+                            <p>
+                                Integrated distributed 24V/12V/5V power systems, embedded monitoring, relay protection, actuator control, voltage/current sensing, and automated fault detection into a fully autonomous cleaning platform.
+                            </p>
+                            <p>
+                                Developed embedded protection systems using STM32 microcontrollers, ADC monitoring, sensors, and relay shutdown logic to safely detect abnormal electrical conditions during operation and testing.
+                            </p>
+                            <div class="project-tags">
+                                <span>STM32</span><span>KiCad</span><span>Onshape</span><span>MATLAB</span><span>Power Systems</span><span>Fault Detection</span><span>Clean Energy</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://youtube.com/shorts/7jLNPNOVqEQ?feature=share" target="_blank">Demo Video</a>
+                                <a href="https://docs.google.com/presentation/d/13A1f0DBG7lUBr-yuzFNj6W-8HdbFacBXtvdg_g8KqPo/edit?usp=sharing" target="_blank">Design Slides</a>
+                                <a href="https://docs.google.com/presentation/d/1SFYtMKMk2wEUkvUfUlCSZUihQiLPdGovrnswN9DFg2A/edit?usp=sharing" target="_blank">Testing Slides</a>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <h3>Embedded Fault Detection System</h3>
+                            <p>
+                                Developed a monitoring system that detects overcurrent, undervoltage, obstruction, and abnormal loading conditions, then shuts down power through relay control.
+                            </p>
+                            <div class="project-tags">
+                                <span>24V / 12V / 5V Rails</span><span>Relay Shutdown</span><span>Embedded C</span><span>Power Protection</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://docs.google.com/presentation/d/1yPys6ud6UjtStdSvSwO8iOxjqkX9SQ8YeLiq78kLL44/edit?usp=sharing" target="_blank">Fault System Slides</a>
+                            </div>
+                        </article>
+
+                        <article class="project-card">
+                            <h3>WasteWizard Smart Trash Can</h3>
+                            <p>
+                                Built an autonomous smart trash can using ultrasonic sensing, odor detection, OLED feedback, and actuator control for hands-free operation.
+                            </p>
+                            <div class="project-tags">
+                                <span>STM32</span><span>Ultrasonic Sensor</span><span>OLED</span><span>Automation</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://www.youtube.com/watch?v=UC7Tazu4jGg" target="_blank">Demo Video</a>
+                                <a href="https://docs.google.com/presentation/d/1GFlnDukIo_a9Z3QC4ZBWBCqdpyzvXppunGAbWvP69-M/edit?usp=sharing" target="_blank">Project Slides</a>
+                            </div>
+                        </article>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="box" id="projects">
-    <div class="box-title">My Projects</div>
-    <div class="box-content">
-
-        <div class="project-grid">
-
-            <div class="project-card compact">
-                <h3>Automated Solar Panel Cleaning System</h3>
-                <p>
-                    Automated solar panel cleaning robot focused on improving solar efficiency through embedded control,
-                    power monitoring, relay protection, and MATLAB-based fault validation.
-                </p>
-
-                <div class="project-tags">
-                    <span>STM32</span>
-                    <span>INA3221</span>
-                    <span>MATLAB</span>
-                    <span>Fault Detection</span>
-                    <span>Clean Energy</span>
-                </div>
-
-                <div class="project-links">
-                    <a href="https://youtube.com/shorts/7jLNPNOVqEQ?feature=share" target="_blank">Demo Video</a>
-                    <a href="https://docs.google.com/presentation/d/13A1f0DBG7lUBr-yuzFNj6W-8HdbFacBXtvdg_g8KqPo/edit?usp=sharing" target="_blank">Design Slides</a>
-                    <a href="https://docs.google.com/presentation/d/1SFYtMKMk2wEUkvUfUlCSZUihQiLPdGovrnswN9DFg2A/edit?usp=sharing" target="_blank">Testing Slides</a>
-                </div>
-            </div>
-
-            <div class="project-card compact">
-                <h3>Embedded Fault Detection System</h3>
-                <p>
-                    Voltage/current monitoring system that trips relay power during overcurrent, undervoltage,
-                    obstruction, or sustained abnormal loading conditions.
-                </p>
-
-                <div class="project-tags">
-                    <span>24V / 12V / 5V Rails</span>
-                    <span>Relay Shutdown</span>
-                    <span>Power Protection</span>
-                    <span>Embedded C</span>
-                </div>
-
-                <div class="project-links">
-                    <a href="https://docs.google.com/presentation/d/1yPys6ud6UjtStdSvSwO8iOxjqkX9SQ8YeLiq78kLL44/edit?usp=sharing" target="_blank">Fault System Slides</a>
-                </div>
-            </div>
-
-            <div class="project-card compact">
-                <h3>WasteWizard Smart Trash Can</h3>
-                <p>
-                    Autonomous smart trash can using ultrasonic sensing, odor detection, OLED feedback,
-                    and actuator control for hands-free operation.
-                </p>
-
-                <div class="project-tags">
-                    <span>STM32</span>
-                    <span>Ultrasonic Sensor</span>
-                    <span>OLED</span>
-                    <span>Automation</span>
-                </div>
-
-                <div class="project-links">
-                    <a href="https://www.youtube.com/watch?v=UC7Tazu4jGg" target="_blank">Demo Video</a>
-                    <a href="https://docs.google.com/presentation/d/1GFlnDukIo_a9Z3QC4ZBWBCqdpyzvXppunGAbWvP69-M/edit?usp=sharing" target="_blank">Project Slides</a>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</div>
-
-            <div class="box" id="resume">
+            <section class="box" id="resume">
                 <div class="box-title">Interactive Resume</div>
                 <div class="box-content">
-
                     <div class="resume-tabs">
                         <button class="tab-button active" onclick="showResumeSection('experience', this)">Experience</button>
                         <button class="tab-button" onclick="showResumeSection('projects-resume', this)">Projects</button>
@@ -741,54 +748,46 @@ iframe {
                     </div>
 
                     <div id="experience" class="resume-section active">
+                        <div class="resume-card experience-card">
+                            <h3>Design / Electrical Engineering Intern</h3>
+                            <h4>ArchKey Solutions / Sprig Electric | June 2025 - August 2025</h4>
+                            <p>
+                                Supported electrical engineering and construction teams on large-scale commercial projects including Sutter Health Hospital, UCSC Kresge College, Google Campus, and 1X Technologies facilities.
+                            </p>
+                            <p>
+                                Assisted with electrical layouts, power distribution planning, and system coordination using AutoCAD, Revit, single-line diagrams, NEC standards, and California Title 24 requirements.
+                            </p>
+                            <p>
+                                Performed on-site verification of transformers, circuit breakers, and electrical installations to help ensure systems met project specifications and code requirements.
+                            </p>
+                            <div class="scrapbook-gallery">
+                                <div class="photo-frame">
+                                    <img src="sprig.png" alt="Electrical design work" />
+                                    <p>Commercial electrical design and construction coordination</p>
+                                </div>
+                                <div class="photo-frame">
+                                    <img src="sprigteam.jpg" alt="Internship team" />
+                                    <p>Field and engineering collaboration during internship projects</p>
+                                </div>
+                            </div>
+                        </div>
 
-                        <div class="experience-card polaroid-card">
-
-  <div class="experience-header">
-    <h2>⚡ Design / Electrical Engineering Intern</h2>
-
-    <h3>
-      ArchKey Solutions | June 2025 - September 2025
-    </h3>
-  </div>
-
-  <p class="experience-text">
-    Supported electrical design for commercial projects using BIM, VDC,
-    Autodesk Revit, and AutoCAD with a focus on energy efficiency,
-    Title 24 compliance, and NEC guidelines.
-  </p>
-
-  <div class="scrapbook-gallery">
-
-    <div class="photo-frame tilt-left">
-      <img src="sprig.png" alt="Electrical design work">
-      <p>onsite tour from vdc to construction⚡</p>
-    </div>
-
-    <div class="photo-frame tilt-right">
-      <img src="sprigteam.jpg" alt="Internship team">
-      <p>summer internship crew 🌊</p>
-    </div>
-</div>
-</div>
                         <div class="resume-card">
                             <h3>Snowboard Technician</h3>
                             <h4>Helm of Sunvalley | January 2025 - March 2025</h4>
                             <p>
-                                Operated industrial edge grinders, base sanding systems,
-                                and tuning equipment to perform precision snowboard maintenance,
-                                improving board performance while developing strong attention to detail,
-                                technical troubleshooting, and quality control skills.
+                                Operated industrial edge grinders, base sanding systems, and tuning equipment to perform precision snowboard maintenance while developing troubleshooting, quality control, and technical equipment handling skills.
                             </p>
                         </div>
-                        
+
                         <div class="resume-card">
                             <h3>Supervisor</h3>
                             <h4>Rip Curl | May 2022 - December 2024</h4>
                             <p>
-                                Led and managed team through daily retail operations,
-                                where I learned to communicate effectively, de-escalate situations and 
-                                create community focused retail environments.
+                                Led daily store operations and coordinated team responsibilities in a fast-paced environment, developing strong communication, leadership, and problem-solving skills through team management and customer interaction.
+                            </p>
+                            <p>
+                                Built long-term relationships with customers while helping maintain a community-oriented retail environment centered around surfing, outdoor culture, and customer experience.
                             </p>
                         </div>
 
@@ -796,11 +795,12 @@ iframe {
                             <h3>Web Developer</h3>
                             <h4>Tech4Good | September 2022 - March 2023</h4>
                             <p>
-                                Developed responsive front-end components using Angular, HTML, CSS, and TypeScript, developing skills where I
-                                learned to collaborate with various teams to stay on track of weekly goals.
+                                Developed responsive front-end components using Angular, TypeScript, HTML, and CSS by turning Figma designs into functional web interfaces.
+                            </p>
+                            <p>
+                                Worked with cross-functional teams to improve usability, maintain consistent interface design, and support software development for research-focused platforms.
                             </p>
                         </div>
-
                     </div>
 
                     <div id="projects-resume" class="resume-section">
@@ -808,10 +808,7 @@ iframe {
                             <h3>Solar Panel Cleaning Robot</h3>
                             <h4>Capstone Project | October 2025 - Present</h4>
                             <p>
-                                Designing an automated solar panel cleaning system with embedded control,
-                                BeagleBone Black integration, motor drivers, sensors, KiCad schematics,
-                                mixed-voltage power distribution, relay protection,
-                                and electrical validation testing.
+                                Designed and integrated an automated solar panel cleaning system with embedded control, BeagleBone Black integration, motor drivers, sensor feedback, KiCad schematics, mixed-voltage power distribution, relay protection, and electrical validation testing.
                             </p>
                         </div>
                     </div>
@@ -820,21 +817,23 @@ iframe {
                         <div class="resume-card">
                             <h3>Technical Skills</h3>
                             <span class="skill-tag">Power Systems</span>
+                            <span class="skill-tag">Power Electronics</span>
                             <span class="skill-tag">Energy Efficiency</span>
                             <span class="skill-tag">California Title 24</span>
                             <span class="skill-tag">STM32</span>
                             <span class="skill-tag">PIC</span>
                             <span class="skill-tag">BeagleBone Black</span>
-                            <span class="skill-tag">Real-Time Systems</span>
                             <span class="skill-tag">Sensor Integration</span>
                             <span class="skill-tag">DC-DC Converters</span>
                             <span class="skill-tag">Motor Drivers</span>
                             <span class="skill-tag">Battery Systems</span>
                             <span class="skill-tag">MOSFET Switching</span>
+                            <span class="skill-tag">Relay Protection</span>
+                            <span class="skill-tag">KiCad</span>
+                            <span class="skill-tag">MATLAB</span>
                             <span class="skill-tag">Revit</span>
                             <span class="skill-tag">AutoCAD</span>
                             <span class="skill-tag">Onshape</span>
-                            <span class="skill-tag">C</span>
                             <span class="skill-tag">Embedded C</span>
                             <span class="skill-tag">HTML/CSS</span>
                         </div>
@@ -845,44 +844,35 @@ iframe {
                             <h3>Bachelor of Science in Electrical Engineering</h3>
                             <h4>University of California, Santa Cruz | Expected June 2026</h4>
                             <p>GPA: 3.54</p>
-                            <p>Member of the College Scholars Program.</p>
+                            <p>College Scholars Program Recipient</p>
+                            <p>Relevant Coursework: Embedded Systems, Sensor Technologies, Electronics, Power Systems, Signal Processing, Control Systems, Electrical Infrastructure, Advanced Renewable Energy Sources, Storage, and Smart Grids.</p>
                         </div>
                     </div>
 
-                    <a class="button" href="Peshlakai_Resume.pdf" target="_blank">
-                        View Full Resume PDF
-                    </a>
-
+                    <a class="button" href="Peshlakai_Resume.pdf" target="_blank">View Full Resume PDF</a>
                 </div>
-            </div>
-
+            </section>
         </main>
-
     </div>
 
-    <div class="footer">
-        © 2026 Xezae Peshlakai • MySpace Engineering Portfolio
-    </div>
-
+    <footer class="footer">
+        © 2026 Xezae Peshlakai • Electrical Engineering Portfolio
+    </footer>
 </div>
 
 <script>
-    function showResumeSection(sectionId, button) {
-        const sections = document.querySelectorAll('.resume-section');
-        const buttons = document.querySelectorAll('.tab-button');
+function showResumeSection(sectionId, button) {
+    const sections = document.querySelectorAll('.resume-section');
+    const buttons = document.querySelectorAll('.tab-button');
 
-        sections.forEach(section => {
-            section.classList.remove('active');
-        });
+    sections.forEach(section => section.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
 
-        buttons.forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        document.getElementById(sectionId).classList.add('active');
-        button.classList.add('active');
-    }
+    document.getElementById(sectionId).classList.add('active');
+    button.classList.add('active');
+}
 </script>
 
 </body>
 </html>
+
